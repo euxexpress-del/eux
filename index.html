@@ -13,7 +13,7 @@
     
     <style>
         :root {
-            --primary-color: #ffcc00; /* لون السرعة والتميز */
+            --primary-color: #0076ff; /* اللون الأزرق الاحترافي الجديد */
             --secondary-color: #1a1a1a; /* اللون الداكن الأساسي */
             --light-bg: #f9f9f9;
             --text-color: #333;
@@ -69,7 +69,7 @@
         /* قسم الهيرو / الواجهة الرئيسية */
         .hero {
             background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3') no-repeat center center/cover;
-            height: 80vh;
+            height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -77,6 +77,75 @@
             text-align: center;
             color: var(--white);
             padding: 0 20px;
+        }
+
+        /* تصميم الطرد الطائر المتحرك */
+        .flying-package {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        .package-box {
+            width: 100%;
+            height: 80%;
+            background-color: #d2a679; /* لون كرتوني للطرد */
+            border: 4px solid #b38659;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* شريط الشحن اللاصق على الطرد */
+        .package-box::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 100%;
+            background-color: var(--primary-color); /* شريط أزرق ممتد */
+            opacity: 0.8;
+        }
+
+        /* كلمة EUX المحفورة على الطرد */
+        .package-text {
+            color: #593e1a;
+            font-size: 22px;
+            font-weight: 900;
+            z-index: 2;
+            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0 8px;
+            border-radius: 4px;
+        }
+
+        /* تأثير الظل تحت الطرد الطائر ليوحي بأنه لا يلمس الأرض */
+        .package-shadow {
+            width: 70px;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            margin: 10px auto 0;
+            animation: shadowAnimation 3s ease-in-out infinite;
+            filter: blur(2px);
+        }
+
+        /* حركة الطيران اللطيفة للأعلى والأسفل */
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* حركة تمدد وانكماش الظل مع الطيران */
+        @keyframes shadowAnimation {
+            0% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(0.6); opacity: 0.15; }
+            100% { transform: scale(1); opacity: 0.4; }
         }
 
         .hero h1 {
@@ -98,7 +167,7 @@
 
         .btn {
             background-color: var(--primary-color);
-            color: var(--secondary-color);
+            color: var(--white);
             padding: 12px 35px;
             border: none;
             border-radius: 30px;
@@ -107,12 +176,12 @@
             cursor: pointer;
             text-decoration: none;
             transition: 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
         }
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
         }
 
         /* قسم من نحن / الإحصائيات */
@@ -284,6 +353,14 @@
 
     <!-- الواجهة الرئيسية (Hero) -->
     <section class="hero">
+        <!-- عنصر الطرد الطائر المضاف حديثاً -->
+        <div class="flying-package">
+            <div class="package-box">
+                <span class="package-text">EUX</span>
+            </div>
+            <div class="package-shadow"></div>
+        </div>
+
         <h1>شركة <span>EUX</span> للشحن</h1>
         <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
         <a href="https://wa.me/201000000000" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا الآن</a>
@@ -387,3 +464,4 @@
 
 </body>
 </html>
+
