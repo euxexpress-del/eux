@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شركة EUX للشحن | الريادة في سرعة وحلول الشحن</title>
+    <!-- خط القاهرة من جوجل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0076ff; /* اللون الأزرق الاحترافي الجديد */
-            --secondary-color: #1a1a1a; /* اللون الداكن الأساسي */
+            --primary-color: #0076ff;
+            --secondary-color: #1a1a1a;
             --light-bg: #f9f9f9;
             --text-color: #333;
             --white: #ffffff;
@@ -25,30 +27,35 @@
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             color: var(--text-color);
             line-height: 1.8;
             background-color: var(--white);
+            overflow-x: hidden;
         }
 
-        /* الهيدر والقائمة */
+        /* النافذة العلوية: مستقيمة من الأعلى، دائرية مائلة من الأسفل (اليمين واليسار) */
         header {
             background-color: var(--secondary-color);
-            padding: 15px 5%;
+            padding: 20px 8%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom-left-radius: 40px;  /* حافة سفلية يسار مائلة */
+            border-bottom-right-radius: 40px; /* حافة سفلية يمين مائلة */
+            border-bottom: 2px solid rgba(0, 118, 255, 0.3);
         }
 
         .logo {
             color: var(--primary-color);
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             text-decoration: none;
             letter-spacing: 1px;
@@ -57,7 +64,7 @@
         nav a {
             color: var(--white);
             text-decoration: none;
-            margin-right: 20px;
+            margin-right: 25px;
             font-weight: 600;
             transition: 0.3s;
         }
@@ -66,20 +73,63 @@
             color: var(--primary-color);
         }
 
-        /* قسم الهيرو / الواجهة الرئيسية مع خلفية الخريطة الرقمية المتناسقة للـ Cairo & Giza */
+        /* قسم الواجهة الرئيسية مع الخريطة التقنية الداكنة */
         .hero {
             background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3') no-repeat center center/cover;
-            height: 95vh;
+            min-height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 0 20px;
+            padding: 60px 20px 160px 20px; /* مساحة بالأسفل لتموج البحر */
+            position: relative;
         }
 
-        /* حاوية مخصصة لتوسيط وعزل الميكانيكا البرمجية للصناديق */
+        /* حاويات موج البحر (SVG Sea Waves) */
+        .sea-wave-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .sea-wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 90px;
+        }
+
+        .sea-wave-bottom .wave-fill-white {
+            fill: var(--white);
+        }
+
+        .sea-wave-top {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .sea-wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(130% + 1.3px);
+            height: 90px;
+        }
+
+        .sea-wave-top .wave-fill-dark {
+            fill: var(--secondary-color);
+        }
+
+        /* الصناديق البرمجية الثلاثة - حجم مضاعف ونظيف */
         .showcase-wrapper {
             display: flex;
             flex-direction: column;
@@ -89,9 +139,7 @@
             position: relative;
         }
 
-        /* ================================================ */
-        /* [1] التصميم الأول: كود الطرد اللوجستي السيبراني (الأعلى) - حجم مضاعف */
-        /* ================================================ */
+        /* 1. الطرد السيبراني */
         .cyber-node {
             width: 160px;
             height: 160px;
@@ -106,325 +154,107 @@
             color: var(--white);
             position: relative;
             animation: nodeFloat 2.6s ease-in-out infinite;
-            letter-spacing: 2px;
         }
         .cyber-node::after {
-            content: '';
-            position: absolute;
-            inset: -12px;
-            border: 3px dashed var(--primary-color);
-            border-radius: 24px;
-            opacity: 0.7;
-            animation: rotateDashed 15s linear infinite;
+            content: ''; position: absolute; inset: -12px;
+            border: 3px dashed var(--primary-color); border-radius: 24px;
+            opacity: 0.7; animation: rotateDashed 15s linear infinite;
         }
         @keyframes nodeFloat {
-            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 25px rgba(0, 210, 255, 0.25); }
-            50% { transform: translateY(-25px) scale(1.04); box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); }
+            0%, 100% { transform: translateY(0); box-shadow: 0 0 25px rgba(0, 210, 255, 0.25); }
+            50% { transform: translateY(-20px); box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); }
         }
-        @keyframes rotateDashed {
-            100% { transform: rotate(360deg); }
-        }
+        @keyframes rotateDashed { 100% { transform: rotate(360deg); } }
 
-        /* ================================================ */
-        /* [2] التصميم الثاني: كود المحرك الأيزومتري ثلاثي الأبعاد (المنتصف) - حجم مضاعف */
-        /* ================================================ */
+        /* 2. المحرك الأيزومتري */
         .cube-container {
-            width: 180px;
-            height: 170px;
-            perspective: 1000px;
+            width: 180px; height: 170px; perspective: 1000px;
             animation: isometricFloat 3s ease-in-out infinite;
         }
-        .iso-cube {
-            width: 130px;
-            height: 130px;
-            position: relative;
-            transform-style: preserve-3d;
-            transform: rotateX(-30deg) rotateY(45deg);
-            margin: auto;
-        }
-        .iso-face {
-            position: absolute;
-            width: 130px;
-            height: 130px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--white);
-            border: 1.5px solid rgba(255,255,255,0.15);
-            letter-spacing: 1px;
-        }
+        .iso-cube { width: 130px; height: 130px; position: relative; transform-style: preserve-3d; transform: rotateX(-30deg) rotateY(45deg); margin: auto; }
+        .iso-face { position: absolute; width: 130px; height: 130px; display: flex; justify-content: center; align-items: center; font-size: 32px; font-weight: 900; color: var(--white); border: 1.5px solid rgba(255,255,255,0.15); }
         .iso-front  { transform: rotateY(0deg) translateZ(65px); background: linear-gradient(135deg, #0052cc, #002d80); }
         .iso-right  { transform: rotateY(90deg) translateZ(65px); background: linear-gradient(135deg, #003399, #0a1329); }
         .iso-top    { transform: rotateX(90deg) translateZ(65px); background: linear-gradient(135deg, #2575fc, #0052cc); }
-        .iso-top::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 10px;
-            background: var(--gold-accent); box-shadow: 0 0 15px var(--gold-accent);
-            animation: laserMove 2.5s linear infinite;
-        }
-        @keyframes isometricFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
-        @keyframes laserMove {
-            0% { top: 0; opacity: 0; }
-            50% { opacity: 1; }
-            100% { top: 100%; opacity: 0; }
-        }
+        .iso-top::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: var(--gold-accent); box-shadow: 0 0 15px var(--gold-accent); animation: laserMove 2.5s linear infinite; }
+        @keyframes isometricFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        @keyframes laserMove { 0% { top: 0; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 
-        /* ================================================ */
-        /* [3] التصميم الثالث: بوابة البيانات المدارية (الأسفل) - حجم مضاعف */
-        /* ================================================ */
+        /* 3. بوابة البيانات المدارية */
         .quantum-box {
-            width: 150px;
-            height: 150px;
-            background: rgba(10, 15, 24, 0.85);
-            border: 2px solid rgba(0, 118, 255, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 28px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            animation: quantumFloat 2.8s ease-in-out infinite;
-            border-bottom: 4px solid var(--primary-color);
-            box-shadow: inset 0 0 25px rgba(0, 118, 255, 0.2);
+            width: 150px; height: 150px; background: rgba(10, 15, 24, 0.85); border: 2px solid rgba(0, 118, 255, 0.4);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 28px; display: flex; justify-content: center; align-items: center; position: relative; animation: quantumFloat 2.8s ease-in-out infinite; border-bottom: 4px solid var(--primary-color);
         }
-        .quantum-box::before {
-            content: '';
-            position: absolute;
-            width: 220px;
-            height: 70px;
-            border: 3px solid var(--gold-accent);
-            border-radius: 50%;
-            transform: rotateX(70deg) rotateY(15deg);
-            box-shadow: 0 0 20px var(--gold-accent);
-            animation: orbitPulse 2.8s linear infinite;
-        }
-        @keyframes quantumFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(-3deg); }
-        }
+        .quantum-box::before { content: ''; position: absolute; width: 220px; height: 70px; border: 3px solid var(--gold-accent); border-radius: 50%; transform: rotateX(70deg) rotateY(15deg); box-shadow: 0 0 20px var(--gold-accent); animation: orbitPulse 2.8s linear infinite; }
+        @keyframes quantumFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        /* قاعدة الظلال الرقمية المتوهجة بالأسفل - تم تكبيرها لتناسب الأحجام الجديدة */
         .glow-floor {
-            width: 110px;
-            height: 10px;
-            background: radial-gradient(var(--primary-color), transparent 70%);
-            border-radius: 50%;
-            margin-top: 20px;
-            opacity: 0.6;
-            animation: shadowScale 2.6s ease-in-out infinite;
-        }
-        @keyframes shadowScale {
-            0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(2px); }
-            50% { transform: scale(0.5); opacity: 0.15; filter: blur(5px); }
+            width: 110px; height: 10px; background: radial-gradient(var(--primary-color), transparent 70%); border-radius: 50%; margin-top: 20px; opacity: 0.6;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero h1 span {
-            color: var(--primary-color);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-            color: #ddd;
-        }
+        .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
+        .hero h1 span { color: var(--primary-color); }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; color: #ddd; }
 
         .btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 12px 35px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
+            background-color: var(--primary-color); color: var(--white); padding: 12px 35px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: 0.3s ease; box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
         }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6); }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
-        }
-
-        /* قسم من نحن / الإحصائيات */
+        /* قسم من نحن */
         .about {
-            padding: 80px 10%;
+            padding: 40px 10% 120px 10%;
             text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            background-color: var(--white);
             position: relative;
-            display: inline-block;
-            font-weight: 700;
         }
 
-        .section-title::after {
-            content: '';
-            width: 60%;
-            height: 4px;
-            background-color: var(--primary-color);
-            position: absolute;
-            bottom: -10px;
-            left: 20%;
-            border-radius: 2px;
-        }
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; position: relative; display: inline-block; font-weight: 700; }
+        .section-title::after { content: ''; width: 60%; height: 4px; background-color: var(--primary-color); position: absolute; bottom: -10px; left: 20%; border-radius: 2px; }
 
-        .about-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 40px;
-        }
+        .about-container { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 40px; }
+        .about-card { flex: 1; min-width: 250px; margin: 15px; padding: 30px; background: var(--light-bg); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
+        .about-card:hover { transform: translateY(-5px); }
+        .about-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+        .about-card h3 { margin-bottom: 10px; font-size: 1.4rem; }
 
-        .about-card {
-            flex: 1;
-            min-width: 250px;
-            margin: 15px;
-            padding: 30px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
-        }
+        /* قسم الخدمات */
+        .services { background-color: var(--secondary-color); color: var(--white); padding: 80px 10%; text-align: center; }
+        .services .section-title { color: var(--white); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
+        .service-box { background-color: rgba(255, 255, 255, 0.05); padding: 30px 20px; border-radius: 8px; border-top: 4px solid var(--primary-color); transition: 0.3s; }
+        .service-box:hover { background-color: rgba(255, 255, 255, 0.1); transform: scale(1.03); }
+        .service-box i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .service-box h4 { font-size: 1.25rem; margin-bottom: 10px; }
 
-        .about-card:hover {
-            transform: translateY(-5px);
-        }
+        /* قسم اتصل بنا */
+        .contact { padding: 80px 10%; text-align: center; background-color: var(--light-bg); }
+        .contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+        .info-item { font-size: 1.2rem; font-weight: 600; }
+        .info-item i { color: var(--primary-color); margin-left: 10px; font-size: 1.4rem; }
 
-        .about-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid #222; }
 
-        .about-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-
-        /* قسم الخدمات المميزة */
-        .services {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 80px 10%;
-            text-align: center;
-        }
-
-        .services .section-title {
-            color: var(--white);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .service-box {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px 20px;
-            border-radius: 8px;
-            border-top: 4px solid var(--primary-color);
-            transition: 0.3s;
-        }
-
-        .service-box:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: scale(1.03);
-        }
-
-        .service-box i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .service-box h4 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
-        }
-
-        /* قسم تواصل معنا والموقع */
-        .contact {
-            padding: 80px 10%;
-            text-align: center;
-            background-color: var(--light-bg);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .info-item {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .info-item i {
-            color: var(--primary-color);
-            margin-left: 10px;
-            font-size: 1.4rem;
-        }
-
-        /* فوتر */
-        footer {
-            background-color: #111;
-            color: #aaa;
-            text-align: center;
-            padding: 20px;
-            font-size: 0.9rem;
-            border-top: 1px solid #222;
-        }
-
-        /* التجاوب مع الشاشات الصغيرة */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
+            header { padding: 15px 5%; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
+            .logo { font-size: 20px; }
+            nav a { margin-right: 12px; font-size: 0.85rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
             .cyber-node { width: 120px; height: 120px; font-size: 28px; }
             .cube-container { width: 130px; height: 120px; }
             .iso-cube { width: 90px; height: 90px; }
-            .iso-face { width: 90px; height: 90px; font-size: 24px; transform: rotateX(-30deg) rotateY(45deg); }
+            .iso-face { width: 90px; height: 90px; font-size: 24px; }
             .iso-front  { transform: rotateY(0deg) translateZ(45px); }
             .iso-right  { transform: rotateY(90deg) translateZ(45px); }
             .iso-top    { transform: rotateX(90deg) translateZ(45px); }
             .quantum-box { width: 120px; height: 120px; }
-            .quantum-box::before { width: 170px; height: 55px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- النافذة العلوية (المائلة من الأسفل فقط) -->
     <header>
         <a href="#" class="logo">EUX EXPRESS</a>
         <nav>
@@ -434,8 +264,8 @@
         </nav>
     </header>
 
+    <!-- الواجهة الرئيسية -->
     <section class="hero">
-        
         <div class="showcase-wrapper">
             <div class="cyber-node">EUX</div>
             <div class="glow-floor"></div>
@@ -444,10 +274,17 @@
         <h1>شركة <span>EUX</span> للشحن</h1>
         <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
         <a href="https://wa.me/201000000000" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا الآن</a>
+
+        <!-- فاصل موج البحر الأول (منحنيات ناعمة متداخلة تندمج مع الخلفية البيضاء) -->
+        <div class="sea-wave-bottom">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" class="wave-fill-white"></path>
+            </svg>
+        </div>
     </section>
 
+    <!-- قسم من نحن -->
     <section id="about" class="about">
-        
         <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 20px;">
             <div class="cube-container">
                 <div class="iso-cube">
@@ -479,59 +316,31 @@
                 <p>نقدم أفضل معادلة بين السعر الاقتصادي والجودة العالية لدعم تجارتك.</p>
             </div>
         </div>
-    </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">خدماتنا المميزة</h2>
-        <div class="services-grid">
-            
-            <div class="service-box">
-                <i class="fas fa-mobile-alt"></i>
-                <h4>تطبيق متابعة خاص</h4>
-                <p>تابع شحناتك خطوة بخطوة أولاً بأول من خلال تطبيقنا الذكي.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-users"></i>
-                <h4>جروب للمتابعة والدعم</h4>
-                <p>فريق دعم فني متكامل متواجد لخدمتك ومتابعة طلباتك بمرونة.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-truck-loading"></i>
-                <h4>خدمة بيكب مجاني</h4>
-                <p>نقوم باستلام الشحنات من باب مخزنك أو مقر عملك مجاناً.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-money-bill-wave"></i>
-                <h4>تحصيل 3 أيام أسبوعياً</h4>
-                <p>دورة رأس مال سريعة مع نظام تحصيل مرن وموثوق 3 مرات في الأسبوع.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-search-plus"></i>
-                <h4>خدمة معاينة واستبدال</h4>
-                <p>نمنح عملائك ميزة المعاينة والاستبدال في مكان التسليم لزيادة الثقة.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-redo-alt"></i>
-                <h4>3 محاولات تسليم</h4>
-                <p>نحاول تسليم الشحنة حتى 3 مرات قبل تصنيفها كمرتجع لضمان أعلى نسبة نجاح.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-chart-line"></i>
-                <h4>نسبة تسليم عالية جداً</h4>
-                <p>بفضل خبرتنا الممتدة لـ 3 سنوات، نحقق أعلى معدلات نجاح تسليم بمصر.</p>
-            </div>
-
+        <!-- فاصل موج البحر الثاني (ينقل السطح الأبيض الفاتح إلى لون خدماتنا المظلم) -->
+        <div class="sea-wave-top" style="position: absolute; bottom: 0; left: 0; width: 100%;">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" class="wave-fill-dark"></path>
+            </svg>
         </div>
     </section>
 
+    <!-- قسم الخدمات المميزة -->
+    <section id="services" class="services">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            <div class="service-box"><i class="fas fa-mobile-alt"></i><h4>تطبيق متابعة خاص</h4><p>تابع شحناتك خطوة بخطوة أولاً بأول من خلال تطبيقنا الذكي.</p></div>
+            <div class="service-box"><i class="fas fa-users"></i><h4>جروب للمتابعة والدعم</h4><p>فريق دعم فني متكامل متواجد لخدمتك ومتابعة طلباتك بمرونة.</p></div>
+            <div class="service-box"><i class="fas fa-truck-loading"></i><h4>خدمة بيكب مجاني</h4><p>نقوم باستلام الشحنات من باب مخزنك أو مقر عملك مجاناً.</p></div>
+            <div class="service-box"><i class="fas fa-money-bill-wave"></i><h4>تحصيل 3 أيام أسبوعياً</h4><p>دورة رأس مال سريعة مع نظام تحصيل مرن وموثوق 3 مرات في الأسبوع.</p></div>
+            <div class="service-box"><i class="fas fa-search-plus"></i><h4>خدمة معاينة واستبدال</h4><p>نمنح عملائك ميزة المعاينة والاستبدال في مكان التسليم لزيادة الثقة.</p></div>
+            <div class="service-box"><i class="fas fa-redo-alt"></i><h4>3 محاولات تسليم</h4><p>نحاول تسليم الشحنة حتى 3 مرات قبل تصنيفها كمرتجع لضمان أعلى نسبة نجاح.</p></div>
+            <div class="service-box"><i class="fas fa-chart-line"></i><h4>نسبة تسليم عالية جداً</h4><p>بفضل خبرتنا الممتدة لـ 3 سنوات، نحقق أعلى معدلات نجاح تسليم بمصر.</p></div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل -->
     <section id="contact" class="contact">
-        
         <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 10px;">
             <div class="quantum-box">
                 <span style="color: #0076ff; font-weight: 900; font-size: 32px; z-index: 5; letter-spacing: 1px;">EUX</span>
