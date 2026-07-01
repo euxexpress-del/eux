@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة EUX للشحن | الريادة في سرعة وحلول الشحن</title>
+    <title>شركة EUX للشحن | حلول الشحن الذكية واللوجستية</title>
+    <!-- خط القاهرة من جوجل بجميع الأوزان الفاخرة -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات الفاخرة Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-color: #0076ff; /* اللون الأزرق الاحترافي الجديد */
-            --secondary-color: #1a1a1a; /* اللون الداكن الأساسي */
-            --light-bg: #f9f9f9;
-            --text-color: #333;
+            --primary-blue: #0066ff;
+            --neon-glow: #00d2ff;
+            --cyber-dark: #0a0f18;
+            --card-bg: #111823;
             --white: #ffffff;
+            --gold-accent: #ffb700;
         }
 
         * {
@@ -26,130 +29,160 @@
         }
 
         body {
-            color: var(--text-color);
+            color: #e2e8f0;
             line-height: 1.8;
-            background-color: var(--white);
+            background-color: var(--cyber-dark);
+            overflow-x: hidden;
         }
 
-        /* الهيدر والقائمة */
+        /* الهيدر الاحترافي */
         header {
-            background-color: var(--secondary-color);
-            padding: 15px 5%;
+            background-color: rgba(10, 15, 24, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 20px 8%;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(0, 102, 255, 0.15);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            color: var(--primary-color);
-            font-size: 28px;
+            color: var(--white);
+            font-size: 26px;
             font-weight: 900;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
         }
 
         nav a {
-            color: var(--white);
+            color: #94a3b8;
             text-decoration: none;
-            margin-right: 20px;
+            margin-right: 25px;
             font-weight: 600;
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--primary-color);
+            color: var(--neon-glow);
         }
 
-        /* قسم الواجهة الرئيسية المعزز بالتصاميم الثلاثة */
+        /* واجهة الهيرو السيبرانية الثورية */
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3') no-repeat center center/cover;
-            min-height: 95vh;
+            position: relative;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            color: var(--white);
-            padding: 40px 20px;
+            padding: 60px 20px;
+            background: radial-gradient(circle at center, #111d33 0%, var(--cyber-dark) 70%);
         }
 
-        /* حاوية استعراض التصاميم المقارنة */
-        .showcase-container {
+        /* شبكة الخلفية البرمجية الدقيقة (Tech Grid) */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(0, 102, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+
+        /* حاوية التصاميم البرمجية الثلاثة الفاخرة */
+        .cyber-showcase {
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            gap: 60px;
-            margin-bottom: 40px;
+            gap: 80px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
-            padding: 20px;
+            z-index: 5;
         }
 
-        .showcase-item {
+        .cyber-item {
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
+            min-height: 200px;
         }
 
-        /* تصميم ملصق الرقم فوق كل طرد */
-        .design-number {
-            background-color: var(--primary-color);
-            color: var(--white);
-            font-weight: bold;
-            font-size: 16px;
-            padding: 4px 15px;
-            border-radius: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 0 10px rgba(0, 118, 255, 0.6);
-            z-index: 10;
+        .badge-tech {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid var(--primary-blue);
+            color: var(--neon-glow);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 16px;
+            border-radius: 30px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px rgba(0, 210, 255, 0.3);
         }
 
-        /* ------------------------------------------------ */
-        /* [1] كود التصميم الأول: النيون المضيء الطائر */
-        /* ------------------------------------------------ */
-        .neon-pod {
-            width: 90px;
-            height: 90px;
-            background: #111;
-            border: 3px solid var(--primary-color);
-            border-radius: 12px;
+        /* ================================================ */
+        /* [1] تصميم 1: كود الطرد اللوجستي السيبراني (Neon Cyber Node) */
+        /* ================================================ */
+        .cyber-node {
+            width: 85px;
+            height: 85px;
+            background: linear-gradient(135deg, #131c2e, #080d16);
+            border: 2px solid rgba(0, 210, 255, 0.4);
+            border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 18px;
             font-weight: 900;
             color: var(--white);
-            box-shadow: 0 0 20px rgba(0, 118, 255, 0.8), inset 0 0 15px rgba(0, 118, 255, 0.5);
-            animation: floatNeon 2.5s ease-in-out infinite;
+            position: relative;
+            animation: nodeFloat 2.6s ease-in-out infinite;
         }
-        @keyframes floatNeon {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(4deg); box-shadow: 0 0 30px rgba(0, 118, 255, 1); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        /* الخط المضيء المحيط النبضي */
+        .cyber-node::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 2px dashed var(--primary-blue);
+            border-radius: 12px;
+            opacity: 0.6;
+            animation: rotateDashed 12s linear infinite;
+        }
+        @keyframes nodeFloat {
+            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
+            50% { transform: translateY(-20px) scale(1.02); box-shadow: 0 0 30px rgba(0, 210, 255, 0.5); }
+        }
+        @keyframes rotateDashed {
+            100% { transform: rotate(360deg); }
         }
 
-        /* ------------------------------------------------ */
-        /* [2] كود التصميم الثاني: الصندوق الأيزومتري ثلاثي الأبعاد */
-        /* ------------------------------------------------ */
-        .scene-3d {
+        /* ================================================ */
+        /* [2] تصميم 2: كود المحرك الأيزومتري ثلاثي الأبعاد المطور */
+        /* ================================================ */
+        .cube-container {
             width: 100px;
             height: 100px;
-            perspective: 600px;
-            animation: float3D 3s ease-in-out infinite;
+            perspective: 800px;
+            animation: isometricFloat 3s ease-in-out infinite;
         }
-        .cube-3d {
+        .iso-cube {
             width: 70px;
             height: 70px;
             position: relative;
             transform-style: preserve-3d;
-            transform: rotateX(-25deg) rotateY(45deg);
-            margin: 15px auto;
+            transform: rotateX(-30deg) rotateY(45deg);
+            margin: auto;
         }
-        .face {
+        .iso-face {
             position: absolute;
             width: 70px;
             height: 70px;
@@ -158,391 +191,423 @@
             align-items: center;
             font-size: 16px;
             font-weight: 900;
-            color: white;
-            border: 1px solid #0056cc;
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .front  { transform: rotateY(0deg) translateZ(35px); background: linear-gradient(135deg, #0076ff, #0056cc); }
-        .right  { transform: rotateY(90deg) translateZ(35px); background: linear-gradient(135deg, #0056cc, #003377); }
-        .top    { transform: rotateX(90deg) translateZ(35px); background: linear-gradient(135deg, #3392ff, #0076ff); }
-        @keyframes float3D {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+        .iso-front  { transform: rotateY(0deg) translateZ(35px); background: linear-gradient(135deg, #0052cc, #002d80); }
+        .iso-right  { transform: rotateY(90deg) translateZ(35px); background: linear-gradient(135deg, #003399, #0a1329); }
+        .iso-top    { 
+            transform: rotateX(90deg) translateZ(35px); 
+            background: linear-gradient(135deg, #2575fc, #0052cc); 
+        }
+        /* الخط الليزري المضيء على السطح */
+        .iso-top::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+            background: var(--gold-accent); box-shadow: 0 0 8px var(--gold-accent);
+            animation: laserMove 2.5s linear infinite;
+        }
+        @keyframes isometricFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-22px); }
+        }
+        @keyframes laserMove {
+            0% { top: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
         }
 
-        /* ------------------------------------------------ */
-        /* [3] كود التصميم الثالث: الكريستالي الزجاجي الشفاف */
-        /* ------------------------------------------------ */
-        .glass-box {
-            width: 90px;
-            height: 90px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.25);
+        /* ================================================ */
+        /* [3] تصميم 3: بوابة البيانات اللامعة الدائرية (Quantum Orbital) */
+        /* ================================================ */
+        .quantum-box {
+            width: 85px;
+            height: 85px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
             color: var(--white);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-            animation: floatGlass 2.8s ease-in-out infinite;
-            border-top: 2px solid var(--primary-color);
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
+            animation: quantumFloat 2.8s ease-in-out infinite;
+            border-bottom: 2px solid var(--neon-glow);
         }
-        @keyframes floatGlass {
-            0% { transform: translateY(0px) scale(1); }
-            50% { transform: translateY(-15px) scale(1.03); }
-            100% { transform: translateY(0px) scale(1); }
-        }
-
-        /* الظلال التفاعلية المشتركة أسفل الطرود */
-        .shadow-glow {
-            width: 60px;
-            height: 8px;
-            background: rgba(0, 118, 255, 0.3);
+        /* الحلقة المدارية حول العنصر */
+        .quantum-box::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            border: 2px solid var(--gold-accent);
             border-radius: 50%;
-            margin-top: 15px;
-            filter: blur(3px);
-            animation: shadowScale 2.5s ease-in-out infinite;
+            transform: rotateX(70deg) rotateY(15deg);
+            box-shadow: 0 0 12px var(--gold-accent);
+            animation: orbitPulse 2.8s linear infinite;
         }
-        @keyframes shadowScale {
-            0% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(0.6); opacity: 0.15; }
-            100% { transform: scale(1); opacity: 0.5; }
+        @keyframes quantumFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-18px) rotate(-2deg); }
         }
 
+        /* قاعدة الظلال الرقمية المتوهجة بالأسفل */
+        .glow-floor {
+            width: 65px;
+            height: 6px;
+            background: radial-gradient(var(--primary-blue), transparent 70%);
+            border-radius: 50%;
+            margin-top: 20px;
+            opacity: 0.6;
+            animation: shadowScale 2.6s ease-in-out infinite;
+        }
+        .cyber-item:nth-child(2) .glow-floor { animation-delay: 0.2s; }
+        @keyframes shadowScale {
+            0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(2px); }
+            50% { transform: scale(0.5); opacity: 0.15; filter: blur(5px); }
+        }
+
+        /* العناوين والتحكم الاحترافي */
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            color: var(--white);
         }
 
         .hero h1 span {
-            color: var(--primary-color);
+            color: var(--primary-blue);
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin-bottom: 30px;
-            color: #ddd;
+            font-size: 1.25rem;
+            max-width: 750px;
+            margin-bottom: 40px;
+            color: #94a3b8;
+            font-weight: 400;
         }
 
-        .btn {
-            background-color: var(--primary-color);
+        .btn-cyber {
+            background: linear-gradient(135deg, var(--primary-blue), #0052cc);
             color: var(--white);
-            padding: 12px 35px;
+            padding: 14px 40px;
             border: none;
-            border-radius: 30px;
+            border-radius: 8px;
             font-size: 1.1rem;
             font-weight: 700;
             cursor: pointer;
             text-decoration: none;
-            transition: 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
+            transition: 0.3s all ease;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .btn:hover {
+        .btn-cyber:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6);
+            box-shadow: 0 6px 25px rgba(0, 102, 255, 0.7);
+            background: linear-gradient(135deg, #0076ff, var(--primary-blue));
         }
 
-        /* قسم من نحن */
+        /* قسم الميزات / عن الشركة بأسلوب البطاقات المظلمة */
         .about {
-            padding: 80px 10%;
-            text-align: center;
+            padding: 100px 10%;
+            background-color: #070a10;
         }
 
         .section-title {
-            font-size: 2.2rem;
-            margin-bottom: 40px;
+            font-size: 2.4rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 900;
             position: relative;
-            display: inline-block;
-            font-weight: 700;
+            color: var(--white);
         }
 
         .section-title::after {
             content: '';
-            width: 60%;
-            height: 4px;
-            background-color: var(--primary-color);
-            position: absolute;
-            bottom: -10px;
-            left: 20%;
+            width: 80px; height: 4px;
+            background: var(--primary-blue);
+            position: absolute; bottom: -15px; left: 50%;
+            transform: translateX(-50%);
             border-radius: 2px;
         }
 
-        .about-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 40px;
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .about-card {
-            flex: 1;
-            min-width: 250px;
-            margin: 15px;
-            padding: 30px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: 0.3s;
+        .tech-card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(0, 102, 255, 0.08);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .about-card:hover {
-            transform: translateY(-5px);
+        .tech-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
 
-        .about-card i {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+        .tech-card i {
+            font-size: 2.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 25px;
         }
 
-        .about-card h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
+        .tech-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--white);
         }
 
-        /* قسم الخدمات المميزة */
+        .tech-card p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* قسم الخدمات التقنية العصرية */
         .services {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 80px 10%;
-            text-align: center;
-        }
-
-        .services .section-title {
-            color: var(--white);
+            padding: 100px 10%;
+            background-color: var(--cyber-dark);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-top: 50px;
         }
 
-        .service-box {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px 20px;
+        .service-node {
+            background: rgba(17, 24, 35, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 35px 25px;
             border-radius: 8px;
-            border-top: 4px solid var(--primary-color);
-            transition: 0.3s;
+            position: relative;
+            transition: 0.3s ease;
         }
 
-        .service-box:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: scale(1.03);
+        .service-node:hover {
+            border-color: rgba(0, 102, 255, 0.4);
+            background: var(--card-bg);
         }
 
-        .service-box i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+        .service-node i {
+            font-size: 2.2rem;
+            color: var(--neon-glow);
+            margin-bottom: 20px;
         }
 
-        .service-box h4 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+        .service-node h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--white);
         }
 
-        /* قسم تواصل معنا والموقع */
+        .service-node p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* قسم الاتصال والموقع السحابي */
         .contact {
-            padding: 80px 10%;
+            padding: 100px 10%;
+            background-color: #070a10;
             text-align: center;
-            background-color: var(--light-bg);
         }
 
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
+        .contact-panel {
+            max-width: 600px;
+            margin: 40px auto 0;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            padding: 40px;
+            border-radius: 16px;
         }
 
-        .info-item {
-            font-size: 1.2rem;
-            font-weight: 600;
+        .contact-item {
+            font-size: 1.25rem;
+            color: var(--white);
+            margin-bottom: 25px;
         }
 
-        .info-item i {
-            color: var(--primary-color);
-            margin-left: 10px;
-            font-size: 1.4rem;
+        .contact-item i {
+            color: var(--primary-blue);
+            margin-left: 12px;
         }
 
-        /* فوتر */
+        /* فوتر برمجي احترافي */
         footer {
-            background-color: #111;
-            color: #aaa;
+            background-color: #03060b;
+            color: #475569;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             font-size: 0.9rem;
-            border-top: 1px solid #222;
+            border-top: 1px solid rgba(255, 255, 255, 0.02);
         }
 
-        /* التجاوب مع الشاشات الصغيرة */
+        /* تجاوب ذكي مرن للهواتف والأجهزة اللوحية */
         @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav a {
-                margin: 0 10px;
-            }
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero p {
-                font-size: 1rem;
-            }
-            .showcase-container {
-                gap: 40px;
-            }
+            header { padding: 15px 5%; flex-direction: column; gap: 15px; }
+            nav a { margin: 0 10px; font-size: 15px; }
+            .hero h1 { font-size: 2.3rem; }
+            .hero p { font-size: 1.05rem; }
+            .cyber-showcase { gap: 40px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- الهيدر -->
     <header>
-        <a href="#" class="logo">EUX EXPRESS</a>
+        <a href="#" class="logo">EUX <span>EXPRESS</span></a>
         <nav>
-            <a href="#about">من نحن</a>
-            <a href="#services">خدماتنا</a>
-            <a href="#contact">اتصل بنا</a>
+            <a href="#about">الرؤية اللوجستية</a>
+            <a href="#services">البنية الخدمية</a>
+            <a href="#contact">قنوات التواصل</a>
         </nav>
     </header>
 
+    <!-- واجهة الدخول السيبرانية (Hero) -->
     <section class="hero">
         
-        <div class="showcase-container">
+        <!-- منصة استعراض الأشكال الفاخرة المحدثة برمجياً لتختار الأنسب من الهاتف -->
+        <div class="cyber-showcase">
             
-            <div class="showcase-item">
-                <div class="design-number">تصميم 1</div>
-                <div class="neon-pod">EUX</div>
-                <div class="shadow-glow"></div>
+            <!-- تصميم رقم 1 -->
+            <div class="cyber-item">
+                <div class="badge-tech">التصميم 1</div>
+                <div class="cyber-node">EUX</div>
+                <div class="glow-floor"></div>
             </div>
 
-            <div class="showcase-item">
-                <div class="design-number">تصميم 2</div>
-                <div class="scene-3d">
-                    <div class="cube-3d">
-                        <div class="face front">EUX</div>
-                        <div class="face right"></div>
-                        <div class="face top"></div>
+            <!-- تصميم رقم 2 -->
+            <div class="cyber-item">
+                <div class="badge-tech">التصميم 2</div>
+                <div class="cube-container">
+                    <div class="iso-cube">
+                        <div class="iso-face iso-front">EUX</div>
+                        <div class="iso-face iso-right"></div>
+                        <div class="iso-face iso-top"></div>
                     </div>
                 </div>
-                <div class="shadow-glow" style="animation-delay: 0.5s;"></div>
+                <div class="glow-floor"></div>
             </div>
 
-            <div class="showcase-item">
-                <div class="design-number">تصميم 3</div>
-                <div class="glass-box">EUX</div>
-                <div class="shadow-glow" style="animation-delay: 1s;"></div>
+            <!-- تصميم رقم 3 -->
+            <div class="cyber-item">
+                <div class="badge-tech">التصميم 3</div>
+                <div class="quantum-box">EUX</div>
+                <div class="glow-floor"></div>
             </div>
 
         </div>
 
-        <h1>شركة <span>EUX</span> للشحن</h1>
-        <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
-        <a href="https://wa.me/201000000000" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا الآن</a>
+        <h1>أنظمة الشحن الذكي من <span>EUX</span></h1>
+        <p>الجيل القادم من الحلول اللوجستية المتكاملة في مصر. ندير عمليات استلام وتسليم شحناتك في القاهرة والجيزة بمرونة فائقة وأنظمة برمجية ذكية تضمن نمو تجارتك.</p>
+        <a href="https://wa.me/201000000000" target="_blank" class="btn-cyber"><i class="fab fa-whatsapp"></i> تفعيل قنوات الاتصال الحي</a>
     </section>
 
+    <!-- قسم الرؤية الاستراتيجية للشركة -->
     <section id="about" class="about">
-        <h2 class="section-title">لماذا شركة EUX؟</h2>
-        <p style="max-width: 800px; margin: 0 auto 30px; color: #666;">نعمل في مجال الشحن منذ 3 أعوام متتالية حققنا فيها نجاحاً باهراً، وقدمنا حلولاً مبتكرة لجميع مشاكل الشحن التي تواجه التجار لأننا ندرك تماماً ما يهمك:</p>
-        
-        <div class="about-container">
-            <div class="about-card">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>سرعة التسليم والاستلام</h3>
-                <p>الأفضل والأسرع في استلام وتسليم الشحنات داخل القاهرة والجيزة.</p>
+        <h2 class="section-title">لماذا الأنظمة اللوجستية لـ EUX؟</h2>
+        <div class="about-grid">
+            <div class="tech-card">
+                <i class="fas fa-microchip"></i>
+                <h3>بنية رقمية متسارعة</h3>
+                <p>أعلى معدلات سرعة لاستلام الشحنات وتوجيه المناديب عبر خوارزميات جغرافية ذكية داخل النطاق المستهدف.</p>
             </div>
-            <div class="about-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>الحفاظ على الشحنات</h3>
-                <p>أمان كامل لمنتجاتك وضمان وصولها بحالتها الأصلية للعميل.</p>
+            <div class="tech-card">
+                <i class="fas fa-lock"></i>
+                <h3>بروتوكولات حماية الشحنة</h3>
+                <p>تأمين مادي وتقني كامل لكافة الطرود من لحظة الاستلام في مخازن التاجر وحتى وصولها الآمن للعميل النهائي.</p>
             </div>
-            <div class="about-card">
-                <i class="fas fa-hand-holding-usd"></i>
-                <h3>سعر اقتصادي مميز</h3>
-                <p>نقدم أفضل معادلة بين السعر الاقتصادي والجودة العالية لدعم تجارتك.</p>
+            <div class="tech-card">
+                <i class="fas fa-chart-pie"></i>
+                <h3>مرونة تسعيرية مدروسة</h3>
+                <p>توازن هندسي حقيقي يقدم أفضل قيمة اقتصادية في مصر لدعم الهامش الربحي لأعمالك التجارية واستدامتها.</p>
             </div>
         </div>
     </section>
 
+    <!-- قسم الخدمات والحلول اللوجستية الذكية -->
     <section id="services" class="services">
-        <h2 class="section-title">خدماتنا المميزة</h2>
+        <h2 class="section-title">الحلول والخدمات اللوجستية المتقدمة</h2>
         <div class="services-grid">
             
-            <div class="service-box">
-                <i class="fas fa-mobile-alt"></i>
-                <h4>تطبيق متابعة خاص</h4>
-                <p>تابع شحناتك خطوة بخطوة أولاً بأول من خلال تطبيقنا الذكي.</p>
+            <div class="service-node">
+                <i class="fas fa-terminal"></i>
+                <h4>تطبيقات مراقبة حية</h4>
+                <p>منصة وتطبيق متكامل لمتابعة تحركات وحالات الطرود بشكل فوري ومتزامن مع قواعد البيانات السحابية.</p>
             </div>
 
-            <div class="service-box">
-                <i class="fas fa-users"></i>
-                <h4>جروب للمتابعة والدعم</h4>
-                <p>فريق دعم فني متكامل متواجد لخدمتك ومتابعة طلباتك بمرونة.</p>
+            <div class="service-node">
+                <i class="fas fa-satellite-dish"></i>
+                <h4>غرف دعم فني متزامنة</h4>
+                <p>قنوات تواصل تفاعلية مباشرة ومجموعات مخصصة لخدمة التاجر بمرونة عالية وحل المشكلات الفنية فورياً.</p>
             </div>
 
-            <div class="service-box">
-                <i class="fas fa-truck-loading"></i>
-                <h4>خدمة بيكب مجاني</h4>
-                <p>نقوم باستلام الشحنات من باب مخزنك أو مقر عملك مجاناً.</p>
+            <div class="service-node">
+                <i class="fas fa-dolly-flatbed"></i>
+                <h4>استلام مجاني مؤتمت (Free Pick-up)</h4>
+                <p>جدولة واستلام طرودك مباشرة من مقرات عملك أو مخازنك بشكل مجاني ومنتظم وبدون أي تكاليف إضافية.</p>
             </div>
 
-            <div class="service-box">
-                <i class="fas fa-money-bill-wave"></i>
-                <h4>تحصيل 3 أيام أسبوعياً</h4>
-                <p>دورة رأس مال سريعة مع نظام تحصيل مرن وموثوق 3 مرات في الأسبوع.</p>
+            <div class="service-node">
+                <i class="fas fa-vault"></i>
+                <h4>تسويات مالية مكثفة (3 مرات أسبوعياً)</h4>
+                <p>نظام تحصيل وتدفقات نقدية مرن وموثوق يضمن بقاء دورة رأس مال التاجر في أعلى مستويات السيولة المستمرة.</p>
             </div>
 
-            <div class="service-box">
-                <i class="fas fa-search-plus"></i>
-                <h4>خدمة معاينة واستبدال</h4>
-                <p>نمنح عملائك ميزة المعاينة والاستبدال في مكان التسليم لزيادة الثقة.</p>
+            <div class="service-node">
+                <i class="fas fa-qrcode"></i>
+                <h4>خيارات الفحص والاستبدال الميداني</h4>
+                <p>إتاحة معاينة الشحنة وتبديلها الفوري في موقع المستهلك لرفع معايير الشفافية وبناء ولاء مستدام للتجار.</p>
             </div>
 
-            <div class="service-box">
-                <i class="fas fa-redo-alt"></i>
-                <h4>3 محاولات تسليم</h4>
-                <p>نحاول تسليم الشحنة حتى 3 مرات قبل تصنيفها كمرتجع لضمان أعلى نسبة نجاح.</p>
-            </div>
-
-            <div class="service-box">
-                <i class="fas fa-chart-line"></i>
-                <h4>نسبة تسليم عالية جداً</h4>
-                <p>بفضل خبرتنا الممتدة لـ 3 سنوات، نحقق أعلى معدلات نجاح تسليم بمصر.</p>
+            <div class="service-node">
+                <i class="fas fa-sync"></i>
+                <h4>جدولة ثلاثية لمحاولات التسليم</h4>
+                <p>إعادة محاولة توصيل الشحنة حتى ثلاث مرات متتالية قبل الحفظ المرتجع لضمان تحقيق أعلى معدل نجاح تسليم بمصر.</p>
             </div>
 
         </div>
     </section>
 
+    <!-- قسم التواصل وقنوات الاتصال -->
     <section id="contact" class="contact">
-        <h2 class="section-title">كن أحد عملائنا المميزين اليوم!</h2>
-        <p style="margin-bottom: 30px; font-size: 1.1rem;">لا تتردد في التواصل معنا لمعرفة المزيد من التفاصيل والبدء في شحن منتجاتك.</p>
+        <h2 class="section-title">انضم للمنظومة الرقمية لـ EUX اليوم</h2>
+        <p>ابدأ بتوجيه شحناتك من خلال بنية شحن سريعة وذكية ومبنية لخدمة أهدافك التوسعية الكبرى.</p>
         
-        <div class="contact-info">
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>مدينة العبور، الشباب، بجوار كشري الوالي.</span>
+        <div class="contact-panel">
+            <div class="contact-item">
+                <i class="fas fa-server"></i>
+                <span>المقر الإداري: مدينة العبور، إسكان الشباب، بجوار كشري الوالي.</span>
             </div>
-        </div>
-
-        <div style="margin-top: 40px;">
-            <a href="https://wa.me/201000000000" target="_blank" class="btn" style="background-color: #25D366; color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);"><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</a>
+            <div style="margin-top: 30px;">
+                <a href="https://wa.me/201000000000" target="_blank" class="btn-cyber" style="background: linear-gradient(135deg, #12c2e9, #c471ed); border: none; box-shadow: 0 4px 20px rgba(18, 194, 233, 0.4);"><i class="fab fa-whatsapp"></i> تواصل فوري عبر واتساب</a>
+            </div>
         </div>
     </section>
 
+    <!-- الفوتر البرمجي -->
     <footer>
-        <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن | تم التطوير بكل احترافية.</p>
+        <p>&copy; 2026 جميع الحقوق البرمجية واللوجستية محفوظة لشركة EUX Express | تم البناء بأعلى معايير الويب الفاخرة.</p>
     </footer>
 
 </body>
