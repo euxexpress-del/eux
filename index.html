@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شركة EUX للشحن | الريادة في سرعة وحلول الشحن</title>
-    <!-- خط القاهرة من جوجل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- مكتبة الأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -27,130 +25,58 @@
             margin: 0;
             padding: 0;
             font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
             color: var(--text-color);
             line-height: 1.8;
             background-color: var(--white);
-            overflow-x: hidden;
         }
 
-        /* الهيدر المطور بتصميم زجاجي متموج وانسيابي */
+        /* الهيدر والقائمة */
         header {
-            background-color: rgba(26, 26, 26, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 12px 6%;
+            background-color: var(--secondary-color);
+            padding: 15px 5%;
             position: sticky;
-            top: 15px;
-            margin: 0 5%;
-            border-radius: 50px; /* زوايا دائرية فائقة الانسيابية تماشي الموج */
+            top: 0;
             z-index: 1000;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.4s ease;
         }
 
         .logo {
             color: var(--primary-color);
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 900;
             text-decoration: none;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 118, 255, 0.3);
         }
 
         nav a {
             color: var(--white);
             text-decoration: none;
-            margin-right: 25px;
+            margin-right: 20px;
             font-weight: 600;
-            font-size: 0.95rem;
             transition: 0.3s;
-            position: relative;
-            padding: 5px 0;
-        }
-
-        /* تأثير خط متموج صغير تحت عناصر القائمة عند التمرير فوقها */
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            border-radius: 2px;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
         }
 
         nav a:hover {
-            color: var(--neon-glow);
+            color: var(--primary-color);
         }
 
-        /* قسم الهيرو / الواجهة الرئيسية مع خريطة رقمية متناسقة للـ Cairo & Giza */
+        /* قسم الهيرو / الواجهة الرئيسية مع خلفية الخريطة الرقمية المتناسقة للـ Cairo & Giza */
         .hero {
             background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3') no-repeat center center/cover;
-            min-height: 90vh;
+            height: 95vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: var(--white);
-            padding: 100px 20px 140px 20px; /* مساحة بالأسفل ليتسع للموجة */
-            position: relative;
-        }
-
-        /* حاوية الفواصل المموجة برمجياً */
-        .wave-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            transform: rotate(180deg);
-        }
-
-        .wave-container svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
-        }
-
-        .wave-container .wave-fill {
-            fill: var(--white); /* تندمج تماماً مع لون القسم التالي */
-        }
-
-        .wave-container-top {
-            position: relative;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-
-        .wave-container-top svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 80px;
-        }
-
-        .wave-container-top .wave-fill-dark {
-            fill: var(--secondary-color); /* تندمج مع القسم المظلم اللاحق */
+            padding: 0 20px;
         }
 
         /* حاوية مخصصة لتوسيط وعزل الميكانيكا البرمجية للصناديق */
@@ -163,7 +89,9 @@
             position: relative;
         }
 
+        /* ================================================ */
         /* [1] التصميم الأول: كود الطرد اللوجستي السيبراني (الأعلى) - حجم مضاعف */
+        /* ================================================ */
         .cyber-node {
             width: 160px;
             height: 160px;
@@ -197,7 +125,9 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* ================================================ */
         /* [2] التصميم الثاني: كود المحرك الأيزومتري ثلاثي الأبعاد (المنتصف) - حجم مضاعف */
+        /* ================================================ */
         .cube-container {
             width: 180px;
             height: 170px;
@@ -243,7 +173,9 @@
             100% { top: 100%; opacity: 0; }
         }
 
+        /* ================================================ */
         /* [3] التصميم الثالث: بوابة البيانات المدارية (الأسفل) - حجم مضاعف */
+        /* ================================================ */
         .quantum-box {
             width: 150px;
             height: 150px;
@@ -276,7 +208,7 @@
             50% { transform: translateY(-25px) rotate(-3deg); }
         }
 
-        /* قاعدة الظلال الرقمية المتوهجة بالأسفل */
+        /* قاعدة الظلال الرقمية المتوهجة بالأسفل - تم تكبيرها لتناسب الأحجام الجديدة */
         .glow-floor {
             width: 110px;
             height: 10px;
@@ -329,10 +261,8 @@
 
         /* قسم من نحن / الإحصائيات */
         .about {
-            padding: 60px 10% 100px 10%;
+            padding: 80px 10%;
             text-align: center;
-            background-color: var(--white);
-            position: relative;
         }
 
         .section-title {
@@ -469,22 +399,22 @@
         /* التجاوب مع الشاشات الصغيرة */
         @media (max-width: 768px) {
             header {
-                top: 10px;
-                margin: 0 3%;
-                padding: 10px 4%;
-                flex-direction: row;
-                justify-content: space-between;
+                flex-direction: column;
+                gap: 15px;
             }
-            .logo { font-size: 18px; }
-            nav a { margin-right: 12px; font-size: 0.8rem; }
-            
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
             .cyber-node { width: 120px; height: 120px; font-size: 28px; }
             .cube-container { width: 130px; height: 120px; }
             .iso-cube { width: 90px; height: 90px; }
-            .iso-face { width: 90px; height: 90px; font-size: 24px; }
+            .iso-face { width: 90px; height: 90px; font-size: 24px; transform: rotateX(-30deg) rotateY(45deg); }
             .iso-front  { transform: rotateY(0deg) translateZ(45px); }
             .iso-right  { transform: rotateY(90deg) translateZ(45px); }
             .iso-top    { transform: rotateX(90deg) translateZ(45px); }
@@ -495,7 +425,6 @@
 </head>
 <body>
 
-    <!-- الهيدر الانسيابي المتموج بتأثير الجلاس مورفيزم -->
     <header>
         <a href="#" class="logo">EUX EXPRESS</a>
         <nav>
@@ -505,10 +434,8 @@
         </nav>
     </header>
 
-    <!-- الواجهة الرئيسية (Hero) مع الخريطة الرقمية والفاصل المموج السفلي -->
     <section class="hero">
         
-        <!-- الطرد السيبراني المطور العملاق -->
         <div class="showcase-wrapper">
             <div class="cyber-node">EUX</div>
             <div class="glow-floor"></div>
@@ -517,19 +444,10 @@
         <h1>شركة <span>EUX</span> للشحن</h1>
         <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
         <a href="https://wa.me/201000000000" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا الآن</a>
-
-        <!-- الفاصل المموج الاحترافي الأول (ينقلك للقسم الأبيض) -->
-        <div class="wave-container">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="wave-fill"></path>
-            </svg>
-        </div>
     </section>
 
-    <!-- قسم من نحن ومميزات التاجر -->
     <section id="about" class="about">
         
-        <!-- الصندوق الأيزومتري ثلاثي الأبعاد العملاق والنظيف -->
         <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 20px;">
             <div class="cube-container">
                 <div class="iso-cube">
@@ -561,16 +479,8 @@
                 <p>نقدم أفضل معادلة بين السعر الاقتصادي والجودة العالية لدعم تجارتك.</p>
             </div>
         </div>
-
-        <!-- الفاصل المموج الاحترافي الثاني (يدمج نهاية القسم الأبيض مع بداية القسم المظلم اللاحق) -->
-        <div class="wave-container-top" style="position: absolute; bottom: 0; left: 0; width: 100%;">
-            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,42.4V0Z" class="wave-fill-dark"></path>
-            </svg>
-        </div>
     </section>
 
-    <!-- قسم الخدمات المميزة -->
     <section id="services" class="services">
         <h2 class="section-title">خدماتنا المميزة</h2>
         <div class="services-grid">
@@ -620,10 +530,8 @@
         </div>
     </section>
 
-    <!-- قسم التواصل والعنوان -->
     <section id="contact" class="contact">
         
-        <!-- بوابة البيانات المدارية الفاخرة العملاقة والنظيفة بالأسفل -->
         <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 10px;">
             <div class="quantum-box">
                 <span style="color: #0076ff; font-weight: 900; font-size: 32px; z-index: 5; letter-spacing: 1px;">EUX</span>
@@ -646,7 +554,6 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer>
         <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن | تم التطوير بكل احترافية.</p>
     </footer>
