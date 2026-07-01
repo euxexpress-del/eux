@@ -66,10 +66,10 @@
             color: var(--primary-color);
         }
 
-        /* قسم الهيرو / الواجهة الرئيسية */
+        /* قسم الهيرو / الواجهة الرئيسية مع خلفية الخريطة الرقمية المتناسقة للـ Cairo & Giza */
         .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3') no-repeat center center/cover;
-            height: 90vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 95vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -85,69 +85,58 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin-bottom: 40px;
             position: relative;
         }
 
-        .badge-tech {
-            background: rgba(0, 118, 255, 0.15);
-            border: 1px solid var(--primary-color);
-            color: var(--neon-glow);
-            font-size: 11px;
-            font-weight: 700;
-            padding: 2px 12px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-
         /* ================================================ */
-        /* [1] التصميم الأول: كود الطرد اللوجستي السيبراني (الأعلى) */
+        /* [1] التصميم الأول: كود الطرد اللوجستي السيبراني (الأعلى) - حجم مضاعف */
         /* ================================================ */
         .cyber-node {
-            width: 85px;
-            height: 85px;
+            width: 160px;
+            height: 160px;
             background: linear-gradient(135deg, #131c2e, #080d16);
-            border: 2px solid rgba(0, 210, 255, 0.5);
-            border-radius: 8px;
+            border: 3px solid rgba(0, 210, 255, 0.6);
+            border-radius: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
+            font-size: 36px;
             font-weight: 900;
             color: var(--white);
             position: relative;
             animation: nodeFloat 2.6s ease-in-out infinite;
+            letter-spacing: 2px;
         }
         .cyber-node::after {
             content: '';
             position: absolute;
-            inset: -6px;
-            border: 2px dashed var(--primary-color);
-            border-radius: 12px;
-            opacity: 0.6;
-            animation: rotateDashed 12s linear infinite;
+            inset: -12px;
+            border: 3px dashed var(--primary-color);
+            border-radius: 24px;
+            opacity: 0.7;
+            animation: rotateDashed 15s linear infinite;
         }
         @keyframes nodeFloat {
-            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 15px rgba(0, 210, 255, 0.2); }
-            50% { transform: translateY(-15px) scale(1.02); box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); }
+            0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 25px rgba(0, 210, 255, 0.25); }
+            50% { transform: translateY(-25px) scale(1.04); box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); }
         }
         @keyframes rotateDashed {
             100% { transform: rotate(360deg); }
         }
 
         /* ================================================ */
-        /* [2] التصميم الثاني: كود المحرك الأيزومتري ثلاثي الأبعاد (المنتصف) */
+        /* [2] التصميم الثاني: كود المحرك الأيزومتري ثلاثي الأبعاد (المنتصف) - حجم مضاعف */
         /* ================================================ */
         .cube-container {
-            width: 100px;
-            height: 90px;
-            perspective: 800px;
+            width: 180px;
+            height: 170px;
+            perspective: 1000px;
             animation: isometricFloat 3s ease-in-out infinite;
         }
         .iso-cube {
-            width: 70px;
-            height: 70px;
+            width: 130px;
+            height: 130px;
             position: relative;
             transform-style: preserve-3d;
             transform: rotateX(-30deg) rotateY(45deg);
@@ -155,27 +144,28 @@
         }
         .iso-face {
             position: absolute;
-            width: 70px;
-            height: 70px;
+            width: 130px;
+            height: 130px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 16px;
+            font-size: 32px;
             font-weight: 900;
             color: var(--white);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1.5px solid rgba(255,255,255,0.15);
+            letter-spacing: 1px;
         }
-        .iso-front  { transform: rotateY(0deg) translateZ(35px); background: linear-gradient(135deg, #0052cc, #002d80); }
-        .iso-right  { transform: rotateY(90deg) translateZ(35px); background: linear-gradient(135deg, #003399, #0a1329); }
-        .iso-top    { transform: rotateX(90deg) translateZ(35px); background: linear-gradient(135deg, #2575fc, #0052cc); }
+        .iso-front  { transform: rotateY(0deg) translateZ(65px); background: linear-gradient(135deg, #0052cc, #002d80); }
+        .iso-right  { transform: rotateY(90deg) translateZ(65px); background: linear-gradient(135deg, #003399, #0a1329); }
+        .iso-top    { transform: rotateX(90deg) translateZ(65px); background: linear-gradient(135deg, #2575fc, #0052cc); }
         .iso-top::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px;
-            background: var(--gold-accent); box-shadow: 0 0 8px var(--gold-accent);
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 10px;
+            background: var(--gold-accent); box-shadow: 0 0 15px var(--gold-accent);
             animation: laserMove 2.5s linear infinite;
         }
         @keyframes isometricFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-25px); }
         }
         @keyframes laserMove {
             0% { top: 0; opacity: 0; }
@@ -184,55 +174,53 @@
         }
 
         /* ================================================ */
-        /* [3] التصميم الثالث: بوابة البيانات المدارية (الأسفل) */
+        /* [3] التصميم الثالث: بوابة البيانات المدارية (الأسفل) - حجم مضاعف */
         /* ================================================ */
         .quantum-box {
-            width: 85px;
-            height: 85px;
-            background: rgba(10, 15, 24, 0.7);
-            border: 1px solid rgba(0, 118, 255, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 16px;
+            width: 150px;
+            height: 150px;
+            background: rgba(10, 15, 24, 0.85);
+            border: 2px solid rgba(0, 118, 255, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 28px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 18px;
-            font-weight: 900;
-            color: var(--secondary-color);
             position: relative;
             animation: quantumFloat 2.8s ease-in-out infinite;
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 4px solid var(--primary-color);
+            box-shadow: inset 0 0 25px rgba(0, 118, 255, 0.2);
         }
         .quantum-box::before {
             content: '';
             position: absolute;
-            width: 120px;
-            height: 40px;
-            border: 2px solid var(--gold-accent);
+            width: 220px;
+            height: 70px;
+            border: 3px solid var(--gold-accent);
             border-radius: 50%;
             transform: rotateX(70deg) rotateY(15deg);
-            box-shadow: 0 0 10px var(--gold-accent);
+            box-shadow: 0 0 20px var(--gold-accent);
             animation: orbitPulse 2.8s linear infinite;
         }
         @keyframes quantumFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(-2deg); }
+            50% { transform: translateY(-25px) rotate(-3deg); }
         }
 
-        /* قاعدة الظلال الرقمية المتوهجة بالأسفل */
+        /* قاعدة الظلال الرقمية المتوهجة بالأسفل - تم تكبيرها لتناسب الأحجام الجديدة */
         .glow-floor {
-            width: 60px;
-            height: 6px;
+            width: 110px;
+            height: 10px;
             background: radial-gradient(var(--primary-color), transparent 70%);
             border-radius: 50%;
-            margin-top: 10px;
-            opacity: 0.5;
+            margin-top: 20px;
+            opacity: 0.6;
             animation: shadowScale 2.6s ease-in-out infinite;
         }
         @keyframes shadowScale {
-            0%, 100% { transform: scale(1); opacity: 0.5; filter: blur(1px); }
-            50% { transform: scale(0.6); opacity: 0.15; filter: blur(3px); }
+            0%, 100% { transform: scale(1); opacity: 0.6; filter: blur(2px); }
+            50% { transform: scale(0.5); opacity: 0.15; filter: blur(5px); }
         }
 
         .hero h1 {
@@ -423,6 +411,15 @@
             .hero p {
                 font-size: 1rem;
             }
+            .cyber-node { width: 120px; height: 120px; font-size: 28px; }
+            .cube-container { width: 130px; height: 120px; }
+            .iso-cube { width: 90px; height: 90px; }
+            .iso-face { width: 90px; height: 90px; font-size: 24px; transform: rotateX(-30deg) rotateY(45deg); }
+            .iso-front  { transform: rotateY(0deg) translateZ(45px); }
+            .iso-right  { transform: rotateY(90deg) translateZ(45px); }
+            .iso-top    { transform: rotateX(90deg) translateZ(45px); }
+            .quantum-box { width: 120px; height: 120px; }
+            .quantum-box::before { width: 170px; height: 55px; }
         }
     </style>
 </head>
@@ -440,7 +437,6 @@
     <section class="hero">
         
         <div class="showcase-wrapper">
-            <div class="badge-tech">التصميم 1</div>
             <div class="cyber-node">EUX</div>
             <div class="glow-floor"></div>
         </div>
@@ -452,8 +448,7 @@
 
     <section id="about" class="about">
         
-        <div class="showcase-wrapper" style="margin-bottom: 40px;">
-            <div class="badge-tech">التصميم 2</div>
+        <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 20px;">
             <div class="cube-container">
                 <div class="iso-cube">
                     <div class="iso-face iso-front" style="color: white;">EUX</div>
@@ -461,7 +456,7 @@
                     <div class="iso-face iso-top"></div>
                 </div>
             </div>
-            <div class="glow-floor"></div>
+            <div class="glow-floor" style="margin-top: 25px;"></div>
         </div>
 
         <h2 class="section-title">لماذا شركة EUX؟</h2>
@@ -537,12 +532,11 @@
 
     <section id="contact" class="contact">
         
-        <div class="showcase-wrapper" style="margin-bottom: 40px;">
-            <div class="badge-tech">التصميم 3</div>
+        <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 10px;">
             <div class="quantum-box">
-                <span style="color: #0076ff; font-weight: 900; z-index: 5;">EUX</span>
+                <span style="color: #0076ff; font-weight: 900; font-size: 32px; z-index: 5; letter-spacing: 1px;">EUX</span>
             </div>
-            <div class="glow-floor" style="background: radial-gradient(var(--gold-accent), transparent 70%);"></div>
+            <div class="glow-floor" style="background: radial-gradient(var(--gold-accent), transparent 70%); margin-top: 25px;"></div>
         </div>
 
         <h2 class="section-title">كن أحد عملائنا المميزين اليوم!</h2>
@@ -566,3 +560,4 @@
 
 </body>
 </html>
+
