@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة EUX للشحن | الريادة في سرعة وحلول الشحن</title>
+    <!-- خط القاهرة من جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- مكتبة الأيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #ffcc00; /* لون السرعة والتميز */
+            --secondary-color: #1a1a1a; /* اللون الداكن الأساسي */
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.8;
+            background-color: var(--white);
+        }
+
+        /* الهيدر والقائمة */
+        header {
+            background-color: var(--secondary-color);
+            padding: 15px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: 900;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* قسم الهيرو / الواجهة الرئيسية */
+        .hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 12px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6);
+        }
+
+        /* قسم من نحن / الإحصائيات */
+        .about {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60%;
+            height: 4px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .about-card {
+            flex: 1;
+            min-width: 250px;
+            margin: 15px;
+            padding: 30px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* قسم الخدمات المميزة */
+        .services {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .services .section-title {
+            color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .service-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px 20px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-color);
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.03);
+        }
+
+        .service-box i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-box h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        /* قسم تواصل معنا والموقع */
+        .contact {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: var(--light-bg);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .info-item {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+            margin-left: 10px;
+            font-size: 1.4rem;
+        }
+
+        /* فوتر */
+        footer {
+            background-color: #111;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر -->
+    <header>
+        <a href="#" class="logo">EUX EXPRESS</a>
+        <nav>
+            <a href="#about">من نحن</a>
+            <a href="#services">خدماتنا</a>
+            <a href="#contact">اتصل بنا</a>
+        </nav>
+    </header>
+
+    <!-- الواجهة الرئيسية (Hero) -->
+    <section class="hero">
+        <h1>شركة <span>EUX</span> للشحن</h1>
+        <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
+        <a href="https://wa.me/201000000000" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا الآن</a>
+    </section>
+
+    <!-- قسم من نحن ومميزات التاجر -->
+    <section id="about" class="about">
+        <h2 class="section-title">لماذا شركة EUX؟</h2>
+        <p style="max-width: 800px; margin: 0 auto 30px; color: #666;">نعمل في مجال الشحن منذ 3 أعوام متتالية حققنا فيها نجاحاً باهراً، وقدمنا حلولاً مبتكرة لجميع مشاكل الشحن التي تواجه التجار لأننا ندرك تماماً ما يهمك:</p>
+        
+        <div class="about-container">
+            <div class="about-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>سرعة التسليم والاستلام</h3>
+                <p>الأفضل والأسرع في استلام وتسليم الشحنات داخل القاهرة والجيزة.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>الحفاظ على الشحنات</h3>
+                <p>أمان كامل لمنتجاتك وضمان وصولها بحالتها الأصلية للعميل.</p>
+            </div>
+            <div class="about-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>سعر اقتصادي مميز</h3>
+                <p>نقدم أفضل معادلة بين السعر الاقتصادي والجودة العالية لدعم تجارتك.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات المميزة -->
+    <section id="services" class="services">
+        <h2 class="section-title">خدماتنا المميزة</h2>
+        <div class="services-grid">
+            
+            <div class="service-box">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>تطبيق متابعة خاص</h4>
+                <p>تابع شحناتك خطوة بخطوة أولاً بأول من خلال تطبيقنا الذكي.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-users"></i>
+                <h4>جروب للمتابعة والدعم</h4>
+                <p>فريق دعم فني متكامل متواجد لخدمتك ومتابعة طلباتك بمرونة.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-truck-loading"></i>
+                <h4>خدمة بيكب مجاني</h4>
+                <p>نقوم باستلام الشحنات من باب مخزنك أو مقر عملك مجاناً.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-money-bill-wave"></i>
+                <h4>تحصيل 3 أيام أسبوعياً</h4>
+                <p>دورة رأس مال سريعة مع نظام تحصيل مرن وموثوق 3 مرات في الأسبوع.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-search-plus"></i>
+                <h4>خدمة معاينة واستبدال</h4>
+                <p>نمنح عملائك ميزة المعاينة والاستبدال في مكان التسليم لزيادة الثقة.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-redo-alt"></i>
+                <h4>3 محاولات تسليم</h4>
+                <p>نحاول تسليم الشحنة حتى 3 مرات قبل تصنيفها كمرتجع لضمان أعلى نسبة نجاح.</p>
+            </div>
+
+            <div class="service-box">
+                <i class="fas fa-chart-line"></i>
+                <h4>نسبة تسليم عالية جداً</h4>
+                <p>بفضل خبرتنا الممتدة لـ 3 سنوات، نحقق أعلى معدلات نجاح تسليم بمصر.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- قسم التواصل والعنوان -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">كن أحد عملائنا المميزين اليوم!</h2>
+        <p style="margin-bottom: 30px; font-size: 1.1rem;">لا تتردد في التواصل معنا لمعرفة المزيد من التفاصيل والبدء في شحن منتجاتك.</p>
+        
+        <div class="contact-info">
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>مدينة العبور، الشباب، بجوار كشري الوالي.</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/201000000000" target="_blank" class="btn" style="background-color: #25D366; color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);"><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</a>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer>
+        <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن | تم التطوير بكل احترافية.</p>
+    </footer>
+
+</body>
+</html>
