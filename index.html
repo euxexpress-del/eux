@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شركة EUX للشحن | الريادة في سرعة وحلول الشحن</title>
-    <!-- خط القاهرة من جوجل -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <!-- مكتبة الأيقونات Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -18,215 +16,34 @@
             --light-bg: #f9f9f9;
             --text-color: #333;
             --white: #ffffff;
-            --neon-glow: #00d2ff;
             --gold-accent: #ffb700;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        body { color: var(--text-color); background-color: var(--white); overflow-x: hidden; }
 
-        body {
-            color: var(--text-color);
-            line-height: 1.8;
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        header {
-            background-color: var(--secondary-color);
-            padding: 20px 8%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            border-bottom: 2px solid rgba(0, 118, 255, 0.3);
-        }
-
-        .logo {
-            color: var(--primary-color);
-            font-size: 26px;
-            font-weight: 900;
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin-right: 25px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .hero {
-            background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3') no-repeat center center/cover;
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-            padding: 60px 20px 180px 20px;
-            position: relative;
-        }
-
-        .sea-wave-divider {
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            z-index: 5;
-        }
-
-        .sea-wave-divider svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 110px;
-        }
-
-        .sea-wave-divider .wave-fill-white { fill: var(--white); }
-        .sea-wave-divider .wave-fill-light { fill: var(--light-bg); }
-
-        .showcase-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .cyber-node {
-            width: 160px; height: 160px;
-            background: linear-gradient(135deg, #131c2e, #080d16);
-            border: 3px solid rgba(0, 210, 255, 0.6);
-            border-radius: 16px;
-            display: flex; justify-content: center; align-items: center;
-            font-size: 36px; font-weight: 900; color: var(--white);
-            position: relative; animation: nodeFloat 2.6s ease-in-out infinite;
-        }
-        .cyber-node::after {
-            content: ''; position: absolute; inset: -12px;
-            border: 3px dashed var(--primary-color); border-radius: 24px;
-            opacity: 0.7; animation: rotateDashed 15s linear infinite;
-        }
-        @keyframes nodeFloat {
-            0%, 100% { transform: translateY(0); box-shadow: 0 0 25px rgba(0, 210, 255, 0.25); }
-            50% { transform: translateY(-20px); box-shadow: 0 0 50px rgba(0, 210, 255, 0.6); }
-        }
-        @keyframes rotateDashed { 100% { transform: rotate(360deg); } }
-
-        .cube-container {
-            width: 180px; height: 170px; perspective: 1000px;
-            animation: isometricFloat 3s ease-in-out infinite;
-        }
-        .iso-cube { width: 130px; height: 130px; position: relative; transform-style: preserve-3d; transform: rotateX(-30deg) rotateY(45deg); margin: auto; }
-        .iso-face { position: absolute; width: 130px; height: 130px; display: flex; justify-content: center; align-items: center; font-size: 32px; font-weight: 900; color: var(--white); border: 1.5px solid rgba(255,255,255,0.15); }
-        .iso-front  { transform: rotateY(0deg) translateZ(65px); background: linear-gradient(135deg, #0052cc, #002d80); }
-        .iso-right  { transform: rotateY(90deg) translateZ(65px); background: linear-gradient(135deg, #003399, #0a1329); }
-        .iso-top    { transform: rotateX(90deg) translateZ(65px); background: linear-gradient(135deg, #2575fc, #0052cc); }
-        .iso-top::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 10px; background: var(--gold-accent); box-shadow: 0 0 15px var(--gold-accent); animation: laserMove 2.5s linear infinite; }
-        @keyframes isometricFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        @keyframes laserMove { 0% { top: 0; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-
-        .quantum-box {
-            width: 150px; height: 150px; background: rgba(10, 15, 24, 0.85); border: 2px solid rgba(0, 118, 255, 0.4);
-            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 28px; display: flex; justify-content: center; align-items: center; position: relative; animation: quantumFloat 2.8s ease-in-out infinite; border-bottom: 4px solid var(--primary-color);
-        }
-        .quantum-box::before { content: ''; position: absolute; width: 220px; height: 70px; border: 3px solid var(--gold-accent); border-radius: 50%; transform: rotateX(70deg) rotateY(15deg); box-shadow: 0 0 20px var(--gold-accent); animation: orbitPulse 2.8s linear infinite; }
-        @keyframes quantumFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-
-        .glow-floor {
-            width: 110px; height: 10px; background: radial-gradient(var(--primary-color), transparent 70%); border-radius: 50%; margin-top: 20px; opacity: 0.6;
-        }
-
+        header { background-color: var(--secondary-color); padding: 20px 8%; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid rgba(0, 118, 255, 0.3); }
+        .logo { color: var(--primary-color); font-size: 26px; font-weight: 900; text-decoration: none; }
+        nav a { color: var(--white); text-decoration: none; margin-right: 25px; font-weight: 600; }
+        
+        .hero { background: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3') no-repeat center center/cover; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--white); padding: 60px 20px; position: relative; }
         .hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
         .hero h1 span { color: var(--primary-color); }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 30px; color: #ddd; }
+        .btn { display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 12px 35px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: 0.3s; }
 
-        .btn {
-            display: inline-block; background-color: var(--primary-color); color: var(--white); padding: 12px 35px; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; text-decoration: none; transition: 0.3s ease; box-shadow: 0 4px 15px rgba(0, 118, 255, 0.4);
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 118, 255, 0.6); }
-
-        /* ستايل النافذة المنبثقة (Popup) المعدلة */
-        .popup-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: 0.4s ease; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-        }
+        /* ستايل النافذة المنبثقة */
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: 0.4s; backdrop-filter: blur(8px); }
         .popup-overlay.active { opacity: 1; pointer-events: auto; }
-        .popup-box {
-            background: var(--white); padding: 40px 30px; border-radius: 24px; max-width: 450px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.3); position: relative; transform: scale(0.8); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: center; border-top: 6px solid var(--primary-color);
-        }
-        .popup-overlay.active .popup-box { transform: scale(1); }
-        .popup-close { position: absolute; top: 15px; left: 20px; font-size: 1.5rem; color: #aaa; cursor: pointer; transition: 0.3s; }
-        .popup-close:hover { color: var(--secondary-color); }
-        .popup-title { font-size: 1.25rem; font-weight: 700; color: var(--primary-color); margin-bottom: 25px; background: rgba(0, 118, 255, 0.08); padding: 10px; border-radius: 12px; }
+        .popup-box { background: var(--white); padding: 40px 30px; border-radius: 24px; max-width: 450px; width: 90%; text-align: center; border-top: 6px solid var(--primary-color); }
+        .popup-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-color); margin-bottom: 25px; background: rgba(0, 118, 255, 0.08); padding: 12px; border-radius: 12px; }
         .popup-form-group { text-align: right; margin-bottom: 20px; }
-        .popup-form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.95rem; color: var(--secondary-color); }
-        .popup-form-group input { width: 100%; padding: 12px 15px; border: 2px solid #e1e1e1; border-radius: 12px; font-size: 1rem; font-family: 'Cairo', sans-serif; transition: 0.3s; text-align: right; }
-        .popup-form-group input:focus { border-color: var(--primary-color); outline: none; box-shadow: 0 0 10px rgba(0, 118, 255, 0.15); }
-        .popup-submit-btn { width: 100%; background: var(--primary-color); color: var(--white); border: none; padding: 12px; border-radius: 12px; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: 0.3s; font-family: 'Cairo', sans-serif; box-shadow: 0 4px 12px rgba(0, 118, 255, 0.3); }
-        .popup-submit-btn:hover { background: #005dc7; transform: translateY(-2px); }
-
-        .about { padding: 40px 10% 180px 10%; text-align: center; background-color: var(--white); position: relative; }
-        .section-title { font-size: 2.2rem; margin-bottom: 40px; position: relative; display: inline-block; font-weight: 700; }
-        .section-title::after { content: ''; width: 60%; height: 4px; background-color: var(--primary-color); position: absolute; bottom: -10px; left: 20%; border-radius: 2px; }
-
-        .about-container { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 40px; }
-        .about-card { flex: 1; min-width: 250px; margin: 15px; padding: 30px; background: var(--light-bg); border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; }
-        .about-card:hover { transform: translateY(-5px); }
-        .about-card i { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
-        .about-card h3 { margin-bottom: 10px; font-size: 1.4rem; }
-
-        .services { background-color: var(--secondary-color); color: var(--white); padding: 80px 10% 180px 10%; text-align: center; position: relative; }
-        .services .section-title { color: var(--white); }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 50px; }
-        .service-box { background-color: rgba(255, 255, 255, 0.05); padding: 30px 20px; border-radius: 8px; border-top: 4px solid var(--primary-color); transition: 0.3s; }
-        .service-box:hover { background-color: rgba(255, 255, 255, 0.1); transform: scale(1.03); }
-        .service-box i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
-        .service-box h4 { font-size: 1.25rem; margin-bottom: 10px; }
-
-        .contact { padding: 80px 10%; text-align: center; background-color: var(--light-bg); }
-        .contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
-        .info-item { font-size: 1.2rem; font-weight: 600; }
-        .info-item i { color: var(--primary-color); margin-left: 10px; font-size: 1.4rem; }
-
-        footer { background-color: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid #222; }
-
-        @media (max-width: 768px) {
-            header { padding: 15px 5%; border-bottom-left-radius: 25px; border-bottom-right-radius: 25px; }
-            .logo { font-size: 20px; }
-            nav a { margin-right: 12px; font-size: 0.85rem; }
-            .hero h1 { font-size: 2rem; }
-            .hero p { font-size: 1rem; }
-            .cyber-node { width: 120px; height: 120px; font-size: 28px; }
-            .cube-container { width: 130px; height: 120px; }
-            .iso-cube { width: 90px; height: 90px; }
-            .iso-face { width: 90px; height: 90px; font-size: 24px; }
-            .iso-front  { transform: rotateY(0deg) translateZ(45px); }
-            .iso-right  { transform: rotateY(90deg) translateZ(45px); }
-            .iso-top    { transform: rotateX(90deg) translateZ(45px); }
-            .quantum-box { width: 120px; height: 120px; }
-        }
+        .popup-form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .popup-form-group input { width: 100%; padding: 12px; border: 2px solid #e1e1e1; border-radius: 12px; font-family: 'Cairo'; }
+        .popup-submit-btn { width: 100%; background: var(--primary-color); color: var(--white); border: none; padding: 12px; border-radius: 12px; font-weight: 700; cursor: pointer; }
+        
+        .about { padding: 80px 10%; text-align: center; }
+        .section-title { font-size: 2.2rem; margin-bottom: 40px; font-weight: 700; }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 30px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -235,178 +52,68 @@
         <a href="#" class="logo">EUX EXPRESS</a>
         <nav>
             <a href="#about">من نحن</a>
-            <a href="#services">خدماتنا</a>
             <a href="#contact">اتصل بنا</a>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="showcase-wrapper">
-            <div class="cyber-node">EUX</div>
-            <div class="glow-floor"></div>
-        </div>
-
         <h1>شركة <span>EUX</span> للشحن</h1>
-        <p>الريادة في سرعة وحلول الشحن. نقدم خدماتنا الاحترافية من القاهرة والجيزة وإلى جميع محافظات جمهورية مصر العربية بأفضل الأسعار وأعلى كفاءة.</p>
-        
-        <!-- تعديل الزر الأول ليفتح النافذة بنص جديد -->
+        <p>الريادة في سرعة وحلول الشحن. نخدم القاهرة والجيزة وجميع محافظات مصر.</p>
         <button onclick="togglePopup(true)" class="btn"><i class="fas fa-user-plus"></i> افتح حساب الآن</button>
-
-        <div class="sea-wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,55.05,16.33,81.11,25.09,151,48.56,224.4,74.48,321.39,56.44Z" class="wave-fill-white"></path>
-            </svg>
-        </div>
     </section>
 
-    <!-- النافذة المنبثقة المرتبطة بالرابط الخاص بك بالكامل -->
+    <!-- النافذة المنبثقة -->
     <div class="popup-overlay" id="accountPopup" onclick="closePopupOutside(event)">
         <div class="popup-box">
-            <span class="popup-close" onclick="togglePopup(false)">&times;</span>
-            <div class="popup-title"><i class="far fa-clock"></i> سيتم التواصل خلال 5 ساعات</div>
+            <span class="popup-close" onclick="togglePopup(false)" style="cursor:pointer; float:left;">&times;</span>
+            <div class="popup-title"><i class="far fa-clock"></i> سيتم التواصل خلال 5 ساعات لتفعيل الحساب</div>
             
             <form id="excelForm" onsubmit="submitToExcel(event)">
                 <div class="popup-form-group">
-                    <label for="userName">الاسم</label>
-                    <input type="text" id="userName" name="name" placeholder="أدخل اسمك بالكامل" required>
+                    <label>الاسم</label>
+                    <input type="text" name="name" placeholder="أدخل اسمك بالكامل" required>
                 </div>
                 <div class="popup-form-group">
-                    <label for="userPhone">رقم الهاتف</label>
-                    <input type="tel" id="userPhone" name="phone" placeholder="أدخل رقم الهاتف" required>
+                    <label>رقم الهاتف</label>
+                    <input type="tel" name="phone" placeholder="أدخل رقم الهاتف" required>
                 </div>
-                <button type="submit" class="popup-submit-btn">إرسال</button>
+                <button type="submit" class="popup-submit-btn">إرسال الطلب</button>
             </form>
         </div>
     </div>
 
     <section id="about" class="about">
-        <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 20px;">
-            <div class="cube-container">
-                <div class="iso-cube">
-                    <div class="iso-face iso-front">EUX</div>
-                    <div class="iso-face iso-right"></div>
-                    <div class="iso-face iso-top"></div>
-                </div>
-            </div>
-            <div class="glow-floor" style="margin-top: 25px;"></div>
-        </div>
-
         <h2 class="section-title">لماذا شركة EUX؟</h2>
-        <p style="max-width: 800px; margin: 0 auto 30px; color: #666;">نعمل في مجال الشحن منذ 3 أعوام متتالية حققنا فيها نجاحاً باهراً، وقدمنا حلولاً مبتكرة لجميع مشاكل الشحن التي تواجه التجار لأننا ندرك تماماً ما يهمك:</p>
-        
-        <div class="about-container">
-            <div class="about-card">
-                <i class="fas fa-shipping-fast"></i>
-                <h3>سرعة التسليم والاستلام</h3>
-                <p>الأفضل والأسرع في استلام وتسليم الشحنات داخل القاهرة والجيزة.</p>
-            </div>
-            <div class="about-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>الحفاظ على الشحنات</h3>
-                <p>أمان كامل لمنتجاتك وضمان وصولها بحالتها الأصلية للعميل.</p>
-            </div>
-            <div class="about-card">
-                <i class="fas fa-hand-holding-usd"></i>
-                <h3>سعر اقتصادي مميز</h3>
-                <p>نقدم أفضل معادلة بين السعر الاقتصادي والجودة العالية لدعم تجارتك.</p>
-            </div>
-        </div>
-
-        <div class="sea-wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,55.05,16.33,81.11,25.09,151,48.56,224.4,74.48,321.39,56.44Z" class="wave-fill-white"></path>
-            </svg>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <h2 class="section-title">خدماتنا المميزة</h2>
-        <div class="services-grid">
-            <div class="service-box"><i class="fas fa-mobile-alt"></i><h4>تطبيق متابعة خاص</h4><p>تابع شحناتك خطوة بخطوة أولاً بأول من خلال تطبيقنا الذكي.</p></div>
-            <div class="service-box"><i class="fas fa-users"></i><h4>جروب للمتابعة والدعم</h4><p>فريق دعم فني متكامل متواجد لخدمتك ومتابعة طلباتك بمرونة.</p></div>
-            <div class="service-box"><i class="fas fa-truck-loading"></i><h4>خدمة بيكب مجاني</h4><p>نقوم باستلام الشحنات من باب مخزنك أو مقر عملك مجاناً.</p></div>
-            <div class="service-box"><i class="fas fa-money-bill-wave"></i><h4>تحصيل 3 أيام أسبوعياً</h4><p>دورة رأس مال سريعة مع نظام تحصيل مرن وموثوق 3 مرات في الأسبوع.</p></div>
-            <div class="service-box"><i class="fas fa-search-plus"></i><h4>خدمة معاينة واستبدال</h4><p>نمنح عملائك ميزة المعاينة والاستبدال في مكان التسليم لزيادة الثقة.</p></div>
-            <div class="service-box"><i class="fas fa-redo-alt"></i><h4>3 محاولات تسليم</h4><p>نحاول تسليم الشحنة حتى 3 مرات قبل تصنيفها كمرتجع لضمان أعلى نسبة نجاح.</p></div>
-            <div class="service-box"><i class="fas fa-chart-line"></i><h4>نسبة تسليم عالية جداً</h4><p>بفضل خبرتنا الممتدة لـ 3 سنوات، نحقق أعلى معدلات نجاح تسليم بمصر.</p></div>
-        </div>
-
-        <div class="sea-wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V0C26.9,4.75,55.05,16.33,81.11,25.09,151,48.56,224.4,74.48,321.39,56.44Z" class="wave-fill-light"></path>
-            </svg>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="showcase-wrapper" style="margin-bottom: 50px; margin-top: 10px;">
-            <div class="quantum-box">
-                <span style="color: #0076ff; font-weight: 900; font-size: 32px; z-index: 5; letter-spacing: 1px;">EUX</span>
-            </div>
-            <div class="glow-floor" style="background: radial-gradient(var(--gold-accent), transparent 70%); margin-top: 25px;"></div>
-        </div>
-
-        <h2 class="section-title">كن أحد عملائنا المميزين اليوم!</h2>
-        <p style="margin-bottom: 30px; font-size: 1.1rem;">لا تتردد في التواصل معنا لمعرفة المزيد من التفاصيل والبدء في شحن منتجاتك.</p>
-        
-        <div class="contact-info">
-            <div class="info-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>مدينة العبور، الشباب، بجوار كشري الوالي.</span>
-            </div>
-        </div>
-
-        <div style="margin-top: 40px;">
-            <a href="https://wa.me/201000000000" target="_blank" class="btn" style="background-color: #25D366; color: white; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);"><i class="fab fa-whatsapp"></i> تواصل عبر الواتساب</a>
-        </div>
+        <p>خبرة 3 أعوام من الاحترافية في تقديم حلول الشحن للتجار في مصر.</p>
     </section>
 
     <footer>
-        <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن | تم التطوير بكل احترافية.</p>
+        <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن.</p>
     </footer>
 
     <script>
-        function togglePopup(show) {
-            const popup = document.getElementById('accountPopup');
-            if(show) { popup.classList.add('active'); } else { popup.classList.remove('active'); }
-        }
-
-        function closePopupOutside(event) {
-            const overlay = document.getElementById('accountPopup');
-            if (event.target === overlay) { togglePopup(false); }
-        }
+        function togglePopup(show) { const popup = document.getElementById('accountPopup'); if(show) { popup.classList.add('active'); } else { popup.classList.remove('active'); } }
+        function closePopupOutside(event) { if (event.target === document.getElementById('accountPopup')) { togglePopup(false); } }
 
         function submitToExcel(event) {
             event.preventDefault();
-            
             const submitBtn = event.target.querySelector('.popup-submit-btn');
-            const originalBtnText = submitBtn.innerText;
             submitBtn.innerText = "جاري الإرسال...";
-            submitBtn.disabled = true;
+            const params = new URLSearchParams(new FormData(event.target)).toString();
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbw4UjaHv4Vn0iHDsBI_Wx5AbrqGOfIxDJ5K-PRjJGtrSzCwbufVQR7QVkG1NTaeyINX/exec'; 
 
-            const formData = new FormData(event.target);
-            const params = new URLSearchParams(formData).toString();
-            
-            // تم دمج رابط الـ WebApp الخاص بك هنا مباشرة بالملي
-            const excelWebhookUrl = 'https://script.google.com/macros/s/AKfycbw4UjaHv4Vn0iHDsBI_Wx5AbrqGOfIxDJ5K-PRjJGtrSzCwbufVQR7QVkG1NTaeyINX/exec'; 
-
-            fetch(`${excelWebhookUrl}?${params}`, {
-                method: 'POST'
-            })
-            .then(response => {
-                alert('تم إرسال طلبك بنجاح! سيتم التواصل معك خلال 5 ساعات.');
+            fetch(`${webAppUrl}?${params}`, { method: 'POST' })
+            .then(() => {
+                alert('تم استلام طلبك! سيتم التواصل معك خلال 5 ساعات لتفعيل الحساب.');
                 event.target.reset();
                 togglePopup(false);
             })
-            .catch(error => {
-                alert('تم إرسال طلبك بنجاح! سيتم التواصل معك خلال 5 ساعات.');
+            .catch(() => {
+                alert('تم استلام طلبك! سيتم التواصل معك خلال 5 ساعات لتفعيل الحساب.');
                 event.target.reset();
                 togglePopup(false);
             })
-            .finally(() => {
-                submitBtn.innerText = originalBtnText;
-                submitBtn.disabled = false;
-            });
+            .finally(() => { submitBtn.innerText = "إرسال الطلب"; });
         }
     </script>
 </body>
