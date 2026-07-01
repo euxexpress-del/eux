@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* إضافة حماية منع تحديد النصوص */
+        body {
+            -webkit-user-select: none; /* Chrome, Safari, Opera */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* Internet Explorer/Edge */
+            user-select: none;         /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        }
+
         :root {
             --primary-color: #0076ff;
             --secondary-color: #1a1a1a;
@@ -35,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* تم تعديل الهيدر بناءً على طلبك */
         header {
             background-color: var(--secondary-color);
             padding: 35px 8%;
@@ -44,7 +51,7 @@
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             display: flex;
-            justify-content: center; /* توسيط الشعار */
+            justify-content: center;
             align-items: center;
             border-bottom-left-radius: 40px;
             border-bottom-right-radius: 40px;
@@ -53,7 +60,7 @@
 
         .logo {
             color: var(--primary-color);
-            font-size: 38px; /* تكبير الخط */
+            font-size: 38px;
             font-weight: 900;
             text-decoration: none;
             letter-spacing: 2px;
@@ -196,7 +203,10 @@
         .info-item { font-size: 1.2rem; font-weight: 600; }
         .info-item i { color: var(--primary-color); margin-left: 10px; font-size: 1.4rem; }
 
-        footer { background-color: #111; color: #aaa; text-align: center; padding: 20px; font-size: 0.9rem; border-top: 1px solid #222; }
+        footer { background-color: #111; color: #aaa; text-align: center; padding: 30px 20px; border-top: 1px solid #222; }
+        .footer-social { margin-top: 15px; }
+        .footer-social a { color: var(--white); font-size: 1.8rem; transition: 0.3s; }
+        .footer-social a:hover { color: #1877f2; }
 
         @media (max-width: 768px) {
             header { padding: 20px 5%; }
@@ -214,9 +224,7 @@
         }
     </style>
 </head>
-<body>
-
-    <header>
+<body oncontextmenu="return false;"> <header>
         <a href="#" class="logo">EUX EXPRESS</a>
     </header>
 
@@ -337,9 +345,19 @@
 
     <footer>
         <p>&copy; 2026 جميع الحقوق محفوظة لشركة EUX للشحن | تم التطوير بكل احترافية.</p>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/share/1JBqQgjooM/" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
     </footer>
 
     <script>
+        // سكريبت لمنع اختصارات الكيبورد الشائعة للنسخ أو عرض المصدر
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 'u' || event.key === 's' || event.key === 'c' || event.key === 'a')) {
+                event.preventDefault();
+            }
+        });
+
         function togglePopup(show) {
             const popup = document.getElementById('accountPopup');
             if(show) { popup.classList.add('active'); } else { popup.classList.remove('active'); }
