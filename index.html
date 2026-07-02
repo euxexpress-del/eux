@@ -13,8 +13,6 @@
         input, select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: 0.3s; background: #fafafa; }
         input:focus, select:focus { border-color: #3498db; outline: none; background: white; }
         .required { color: #e74c3c; }
-        .row { display: flex; gap: 10px; }
-        .row > div { flex: 1; }
         button { width: 100%; padding: 15px; background: #3498db; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 25px; transition: 0.3s; }
         button:hover { background: #2980b9; transform: scale(1.02); }
         #response { margin-top: 20px; padding: 12px; border-radius: 8px; text-align: center; display: none; }
@@ -67,7 +65,6 @@
     </div>
 
     <script>
-        // بيانات المدن حسب المحافظة
         const cities = {
             'الرياض': ['الرياض', 'الدرعية', 'الخرج', 'المجمعة', 'القويعية'],
             'جدة': ['جدة', 'مكة', 'الطائف', 'رابغ', 'خليص'],
@@ -87,7 +84,6 @@
         governorateSelect.addEventListener('change', function() {
             const selected = this.value;
             citySelect.innerHTML = '<option value="">اختر المحافظة أولاً</option>';
-            
             if (selected && cities[selected]) {
                 cities[selected].forEach(city => {
                     const option = document.createElement('option');
@@ -98,7 +94,6 @@
             }
         });
 
-        // إرسال النموذج
         document.getElementById('shippingForm').onsubmit = async function(e) {
             e.preventDefault();
             const res = document.getElementById('response');
@@ -116,7 +111,7 @@
             };
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbw4UjaHv4Vn0iHDsBI_Wx5AbrqGOfIxDJ5K-PRjJGtrSzCwbufVQR7QVkG1NTaeyINX/exec', {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyKfvBswjIA3_VO73nUhlnciA-p9GayDRt2NJPsZ8xqExSUIvNCRu4wMNeWsYQbdX7O/exec', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
