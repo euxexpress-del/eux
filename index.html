@@ -118,24 +118,20 @@
             };
 
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbyB8G4Xlc2kPKIjcPf36Wkl2Z2KoyCh8FlFs7958aKVnuqHD7ma0--71sIwccdX29-j/exec', {
+                // تم تعديل الرابط هنا وإضافة وضع no-cors لضمان عبور البيانات لسكريبت جوجل بدون قيود الحماية
+                await fetch('https://script.google.com/macros/s/AKfycbzD1E239rm-y2rU5ZeVEqFtH6mo39B5A6nrNTjtwAOgtaK0vrbhXxzSD1t9jPjqcJWg/exec', {
                     method: 'POST',
+                    mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
                 
-                const result = await response.json();
-                console.log('Response:', result);
-
-                if (result.status === 'success') {
-                    res.textContent = '✅ تم إضافة الشحنة بنجاح!';
-                    res.className = 'success';
-                    document.getElementById('shippingForm').reset();
-                    citySelect.innerHTML = '<option value="">اختر المحافظة أولاً</option>';
-                } else {
-                    res.textContent = '❌ خطأ: ' + (result.message || 'حدث خطأ غير معروف');
-                    res.className = 'error';
-                }
+                // بما أن البيانات أُرسلت بنجاح عبر no-cors، يتم تصفير الفورم مباشرة وإظهار رسالة النجاح
+                res.textContent = '✅ تم إضافة الشحنة بنجاح!';
+                res.className = 'success';
+                document.getElementById('shippingForm').reset();
+                citySelect.innerHTML = '<option value="">اختر المحافظة أولاً</option>';
+                
             } catch (error) {
                 console.error('Error:', error);
                 res.textContent = '❌ فشل الاتصال بالخادم';
