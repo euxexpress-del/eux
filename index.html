@@ -95,7 +95,7 @@
             }
         });
 
-        document.getElementById('shippingForm').onsubmit = async function(e) {
+        document.getElementById('shippingForm').onsubmit = function(e) {
             e.preventDefault();
             
             const submitBtn = document.getElementById('submitBtn');
@@ -107,39 +107,45 @@
             res.className = '';
             res.style.display = 'none';
 
-            const data = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                phone2: document.getElementById('phone2').value,
-                governorate: document.getElementById('governorate').value,
-                city: document.getElementById('city').value,
-                area: document.getElementById('area').value,
-                street: document.getElementById('street').value
-            };
+            // رابط السكريبت الأخير الخاص بك والمستخرج من التحديث الفعّال
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwj5FB0eA3wr67XyFsgwrQOAznKnutJwC-3mx6yUIlew-iCAMnXBKycd-Qu3aTQwDBO/exec';
 
-            try {
-                // تم تعديل الرابط هنا وإضافة وضع no-cors لضمان عبور البيانات لسكريبت جوجل بدون قيود الحماية
-                await fetch('https://script.google.com/macros/s/AKfycbzD1E239rm-y2rU5ZeVEqFtH6mo39B5A6nrNTjtwAOgtaK0vrbhXxzSD1t9jPjqcJWg/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
-                
-                // بما أن البيانات أُرسلت بنجاح عبر no-cors، يتم تصفير الفورم مباشرة وإظهار رسالة النجاح
+            // تجميع البيانات بصيغة URLSearchParams المتوافقة مع السكريبت المحدث
+            const searchParams = new URLSearchParams();
+            searchParams.append('name', document.getElementById('name').value);
+            searchParams.append('phone', document.getElementById('phone').value);
+            searchParams.append('phone2', document.getElementById('phone2').value);
+            searchParams.append('governorate', document.getElementById('governorate').value);
+            searchParams.append('city', citySelect.value);
+            searchParams.append('area', document.getElementById('area').value);
+            searchParams.append('street', document.getElementById('street').value);
+
+            // عملية الإرسال بالنمط الآمن لتخطي قيود CORS للمتصفحات
+            fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: searchParams.toString()
+            })
+            .then(() => {
+                // تصفير الواجهة وإظهار رسالة النجاح فوراً عند مغادرة البيانات للمتصفح
                 res.textContent = '✅ تم إضافة الشحنة بنجاح!';
                 res.className = 'success';
+                res.style.display = 'block';
+                
                 document.getElementById('shippingForm').reset();
                 citySelect.innerHTML = '<option value="">اختر المحافظة أولاً</option>';
-                
-            } catch (error) {
+            })
+            .catch((error) => {
                 console.error('Error:', error);
-                res.textContent = '❌ فشل الاتصال بالخادم';
+                res.textContent = '❌ حدث خطأ أثناء الاتصال بالخادم';
                 res.className = 'error';
-            } finally {
+                res.style.display = 'block';
+            })
+            .finally(() => {
                 submitBtn.disabled = false;
                 submitBtn.textContent = '🚀 إضافة شحنة';
-            }
+            });
         };
     </script>
 </body>
