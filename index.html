@@ -3,12 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إضافة شحنة</title>
+    <title>euxexpress.com - إضافة شحنة</title>
     <style>
         * { box-sizing: border-box; font-family: 'Tahoma', Arial, sans-serif; }
         body { background: #f5f7fa; padding: 20px; margin: 0; }
+        
+        /* تصميم الهيدر المتميز */
+        .brand-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 10px;
+        }
+        
+        /* تأثير الطيران والطفو للرابط كاملاً */
+        .floating-brand {
+            display: inline-block;
+            font-size: 32px;
+            font-weight: 900;
+            color: #2c3e50;
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            text-shadow: 2px 4px 10px rgba(44, 62, 80, 0.15);
+            animation: fly 3s ease-in-out infinite;
+        }
+        
+        /* تمييز جزء eux بلون مختلف داخل الكلمة الطائرة */
+        .floating-brand .highlight {
+            color: #3498db;
+            text-transform: uppercase;
+        }
+        
+        .brand-sub {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* حركة الطيران الانسيابية للرابط بالكامل */
+        @keyframes fly {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); text-shadow: 2px 15px 15px rgba(52, 152, 219, 0.25); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
         .container { max-width: 500px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #2c3e50; margin-bottom: 25px; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
         label { display: block; margin: 15px 0 5px; font-weight: bold; color: #34495e; font-size: 14px; }
         input, select { width: 100%; padding: 12px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 16px; transition: 0.3s; background: #fafafa; }
         input:focus, select:focus { border-color: #3498db; outline: none; background: white; }
@@ -23,7 +62,13 @@
 </head>
 <body>
     <div class="container">
-        <h2>📦 إضافة شحنة</h2>
+        <div class="brand-header">
+            <div class="floating-brand">
+                <span class="highlight">eux</span>express.com
+            </div>
+            <div class="brand-sub">🚀 للشحن لجميع أنحاء جمهورية مصر العربية</div>
+        </div>
+
         <form id="shippingForm">
             <label>اسأل الراسل عن الكود  <span class="required">*</span></label>
             <input type="text" id="brand" placeholder="أدخل كود الراسل " required>
@@ -139,18 +184,14 @@
             res.className = '';
             res.style.display = 'none';
 
-            // الرابط الخاص بك
             const scriptUrl = 'https://script.google.com/macros/s/AKfycbxbB4N3PsnvSYoEeomLcXJjxyXeyWklzWBYQ4Sb2yUwKYOc7P24s5ERHxKCyF4F6fR_/exec';
 
-            // جلب الأرقام المدخلة
             const rawPhone = document.getElementById('phone').value.trim();
             const rawPhone2 = document.getElementById('phone2').value.trim();
             
-            // استخدام دالة الصق لضمان إجبار العلامة في أقصى اليسار تماماً وتجنب مشاكل اتجاه النص العربي
             const formattedPhone = rawPhone ? "'".concat(rawPhone) : "";
             const formattedPhone2 = rawPhone2 ? "'".concat(rawPhone2) : "";
 
-            // إرسال المسميات المطلوبة بنظام المربعات النصية المشفرة
             const searchParams = new URLSearchParams();
             searchParams.append('brand', document.getElementById('brand').value);
             searchParams.append('name', document.getElementById('name').value);
