@@ -139,15 +139,16 @@
             res.className = '';
             res.style.display = 'none';
 
-            // الرابط الجديد الفعّال الخاص بك
+            // الرابط الخاص بك
             const scriptUrl = 'https://script.google.com/macros/s/AKfycbxbB4N3PsnvSYoEeomLcXJjxyXeyWklzWBYQ4Sb2yUwKYOc7P24s5ERHxKCyF4F6fR_/exec';
 
-            // معالجة أرقام الهواتف لإضافة علامة الاقتباس تلقائياً لمنع حذف الأصفار في شيت جوجل
-            const rawPhone = document.getElementById('phone').value;
-            const rawPhone2 = document.getElementById('phone2').value;
+            // جلب الأرقام المدخلة
+            const rawPhone = document.getElementById('phone').value.trim();
+            const rawPhone2 = document.getElementById('phone2').value.trim();
             
-            const formattedPhone = rawPhone ? "'" + rawPhone : "";
-            const formattedPhone2 = rawPhone2 ? "'" + rawPhone2 : "";
+            // استخدام دالة الصق لضمان إجبار العلامة في أقصى اليسار تماماً وتجنب مشاكل اتجاه النص العربي
+            const formattedPhone = rawPhone ? "'".concat(rawPhone) : "";
+            const formattedPhone2 = rawPhone2 ? "'".concat(rawPhone2) : "";
 
             // إرسال المسميات المطلوبة بنظام المربعات النصية المشفرة
             const searchParams = new URLSearchParams();
