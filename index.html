@@ -25,40 +25,56 @@
     <div class="container">
         <h2>📦 إضافة شحنة</h2>
         <form id="shippingForm">
+            <label>اسم البراند <span class="required">*</span></label>
+            <input type="text" id="brand" placeholder="أدخل اسم البراند الخاص بك" required>
+
             <label>اسم المستلم <span class="required">*</span></label>
-            <input type="text" id="name" placeholder="اسم المستلم" required>
+            <input type="text" id="name" placeholder="اسم المستلم الثنائي أو الثلاثي" required>
 
             <label>رقم هاتف المستلم <span class="required">*</span></label>
             <input type="tel" id="phone" placeholder="رقم هاتف المستلم" required>
 
             <label>رقم هاتف آخر للمستلم</label>
-            <input type="tel" id="phone2" placeholder="رقم هاتف آخر للمستلم">
+            <input type="tel" id="phone2" placeholder="رقم هاتف إضافي إن وجد">
 
             <label>المحافظة <span class="required">*</span></label>
             <select id="governorate" required>
                 <option value="">اختر المحافظة</option>
-                <option value="الرياض">الرياض</option>
-                <option value="جدة">جدة</option>
-                <option value="مكة">مكة</option>
-                <option value="المدينة">المدينة</option>
-                <option value="الدمام">الدمام</option>
-                <option value="الخبر">الخبر</option>
-                <option value="الظهران">الظهران</option>
-                <option value="بريدة">بريدة</option>
-                <option value="تبوك">تبوك</option>
-                <option value="أبها">أبها</option>
+                <option value="الشرقية">الشرقية</option>
+                <option value="الجيزة">الجيزة</option>
+                <option value="الغربية">الغربية</option>
+                <option value="الدقهلية">الدقهلية</option>
+                <option value="الإسكندرية">الإسكندرية</option>
+                <option value="أسيوط">أسيوط</option>
+                <option value="أسوان">أسوان</option>
+                <option value="بني سويف">بني سويف</option>
+                <option value="القليوبية">القليوبية</option>
+                <option value="القاهرة">القاهرة</option>
+                <option value="البحيرة">البحيرة</option>
+                <option value="دمياط">دمياط</option>
+                <option value="الفيوم">الفيوم</option>
+                <option value="البحر الأحمر">البحر الأحمر</option>
+                <option value="الإسماعيلية">الإسماعيلية</option>
+                <option value="كفر الشيخ">كفر الشيخ</option>
+                <option value="الأقصر">الأقصر</option>
+                <option value="مرسى مطروح">مرسى مطروح</option>
+                <option value="المنيا">المنيا</option>
+                <option value="بور سعيد">بور سعيد</option>
+                <option value="قنا">قنا</option>
+                <option value="المنوفية">المنوفية</option>
+                <option value="سوهاج">سوهاج</option>
+                <option value="السويس">السويس</option>
+                <option value="الوادي الجديد">الوادي الجديد</option>
+                <option value="جنوب سيناء">جنوب سيناء</option>
             </select>
 
-            <label>المدينة <span class="required">*</span></label>
+            <label>المركز / المدينة <span class="required">*</span></label>
             <select id="city" required>
                 <option value="">اختر المحافظة أولاً</option>
             </select>
 
-            <label>منطقة الوصول <span class="required">*</span></label>
-            <input type="text" id="area" placeholder="المنطقة" required>
-
-            <label>شارع المستلم <span class="required">*</span></label>
-            <input type="text" id="street" placeholder="شارع المستلم" required>
+            <label>ادخل العنوان بالكامل <span class="required">*</span></label>
+            <input type="text" id="street" placeholder="المنطقة، اسم الشارع، رقم العقار أو علامة مميزة" required>
 
             <button type="submit" id="submitBtn">🚀 إضافة شحنة</button>
         </form>
@@ -67,16 +83,32 @@
 
     <script>
         const cities = {
-            'الرياض': ['الرياض', 'الدرعية', 'الخرج', 'المجمعة', 'القويعية'],
-            'جدة': ['جدة', 'مكة', 'الطائف', 'رابغ', 'خليص'],
-            'مكة': ['مكة', 'جدة', 'الطائف', 'رابغ'],
-            'المدينة': ['المدينة', 'ينبع', 'العلا', 'خيبر'],
-            'الدمام': ['الدمام', 'الخبر', 'الظهران', 'القطيف', 'رأس تنورة'],
-            'الخبر': ['الخبر', 'الدمام', 'الظهران', 'القطيف'],
-            'الظهران': ['الظهران', 'الدمام', 'الخبر', 'القطيف'],
-            'بريدة': ['بريدة', 'عنيزة', 'الرس', 'المذنب'],
-            'تبوك': ['تبوك', 'ضباء', 'الوجه', 'حقل'],
-            'أبها': ['أبها', 'خميس مشيط', 'النماص', 'محايل عسير']
+            'الشرقية': ['بلبيس', 'انشاص الرمل', 'أولاد صقر', 'الحسينية', 'ديرب نجم', 'فاقوس', 'كفر صقر', 'مشتول السوق', 'منيا القمح', 'الصالحية القديمة', 'الصالحية الجديدة', 'صان الحجر', 'مدينة العاشر من رمضان'],
+            'الجيزة': ['مدينة السادس من أكتوبر', 'مدينة الشيخ زايد', 'العياط', 'الحوامدية', 'البدرشين', 'الصف', 'العمرانية', 'أطفيح', 'الواحات البحرية', 'الجيزة', 'حدائق الاهرام', 'فيصل', 'الهرم', 'أبو النمرس', 'العجوزة', 'الوراق', 'أوسيم', 'بولاق الدكرور', 'الدقي', 'أرض اللواء', 'المهندسين', 'كرداسة', 'إمبابة', 'منشأة القناطر'],
+            'الغربية': ['كفر الزيات', 'المحلة الكبرى', 'سمنود', 'بسيون', 'السنطة', 'زفتى', 'قطور', 'طنطا'],
+            'الدقهلية': ['المنصورة', 'أجا', 'المنزلة', 'بلقاس', 'دكرنس', 'السنبلاوين', 'منية النصر', 'ميت غمر', 'شربين', 'طلخا'],
+            'الإسكندرية': ['الدخيلة', 'العامرية', 'برج العرب', 'محرم بيك', 'باب شرقي', 'الساحل الشمالي', 'سيدي جابر', 'العطارين', 'المنشية', 'اللبان', 'الجمرك', 'مينا البصل', 'كرموز', 'الرمل', 'المنتزه'],
+            'أسيوط': ['أبنوب', 'أبوتيج', 'البداري', 'الغنايم', 'الفتح', 'القوصية', 'ديروط', 'ساحل سليم', 'صدفا', 'مدينة أسيوط', 'منفلوط', 'منقباد'],
+            'أسوان': ['أسوان', 'كوم امبو', 'دراو', 'إدفو'],
+            'بني سويف': ['الواسطى', 'ناصر', 'مدينة بني سويف', 'مركز بني سويف', 'أهناسيا', 'ببا', 'سمسطا', 'الفشن'],
+            'القليوبية': ['بنها', 'الخانكة', 'العبور', 'القناطر الخيرية', 'شبين القناطر', 'طوخ', 'كفر شكر', 'قليوب', 'شبرا الخيمة'],
+            'القاهرة': ['عابدين', 'العباسية', 'الأزبكية', 'القطامية', 'المنيل', 'المقطم', 'دار السلام', 'البساتين', 'الجمالية', 'السيدة زينب', 'حلوان', 'المعادي', 'مصر القديمة', 'قصر النيل', 'الخليفة', 'طرة', 'الزمالك', 'الشروق', 'مدينة بدر', 'عين شمس', 'مدينتي', 'الزيتون', 'مدينة nsr', 'القاهرة الجديدة', 'هليوبوليس', 'الأميرية', 'السلام', 'الوايلي', 'الشرابية', 'المرج', 'المطرية', 'النزهة', 'حدائق القبة', 'شبرا مصر', 'كورنيش النيل'],
+            'البحيرة': ['دمنهور', 'كفر الدوار', 'أبو حمص', 'المحمودية', 'وادي النطرون', 'النوبارية', 'أبوالمطامير', 'حوش عيسي', 'إيتاي البارود', 'شبراخيت', 'رشيد', 'إدكوا', 'مركز بدر', 'الدلنجات', 'الرحمانية', 'كوم حمادة'],
+            'دمياط': ['فارسكور', 'دمياط القديمة', 'كفر سعد', 'الزرقا', 'كفر البطيخ', 'دمياط الجديدة', 'رأس البر', 'عزبة البرج'],
+            'الفيوم': ['طامية', 'سنورس', 'مركز الفيوم', 'مدينة الفيوم', 'أطسا', 'أبشواي', 'يوسف الصديق'],
+            'البحر الأحمر': ['الغردقة', 'رأس غارب', 'سفاجا', 'القصير', 'مرسى علم'],
+            'الإسماعيلية': ['الإسماعيلية'],
+            'كفر الشيخ': ['كفر الشيخ', 'دسوق', 'فوه', 'مطوبس', 'بلطيم', 'الحامول', 'الرياض', 'بيلا', 'قلين', 'سيدى سالم'],
+            'الأقصر': ['مدينة الأقصر', 'أرمنت', 'أسنا', 'القرنة'],
+            'مرسى مطروح': ['مرسى مطروح'],
+            'المنيا': ['العدوة', 'مغاغة', 'بني مزار', 'مطاي', 'سمالوط', 'مركز المنيا', 'مدينة المنيا', 'أبو قرقاص', 'ملوي', 'دير مواس'],
+            'بور سعيد': ['بورسعيد'],
+            'قنا': ['قنا', 'قوص', 'مدينة قفط', 'دشنا', 'نقادة', 'نجع حمادي', 'فرشوط', 'أبوتشت'],
+            'المنوفية': ['قويسنا', 'بركة السبع', 'السادات', 'الشهداء', 'تلا', 'شبين الكوم', 'الباجور', 'منوف', 'أشمون'],
+            'سوهاج': ['طما', 'طهطا', 'جهينة', 'المراغة', 'مدينة سوهاج', 'أخميم', 'ساقلته', 'المنشأة', 'جرجا', 'البلينا', 'دار السلام', 'العسيرات'],
+            'السويس': ['السويس'],
+            'الوادي الجديد': ['الخارجة', 'الداخلة', 'الفرافرة'],
+            'جنوب سيناء': ['جنوب سيناء', 'شرم الشيخ', 'دهب']
         };
 
         const governorateSelect = document.getElementById('governorate');
@@ -84,7 +116,7 @@
 
         governorateSelect.addEventListener('change', function() {
             const selected = this.value;
-            citySelect.innerHTML = '<option value="">اختر المحافظة أولاً</option>';
+            citySelect.innerHTML = '<option value="">اختر المركز / المدينة</option>';
             if (selected && cities[selected]) {
                 cities[selected].forEach(city => {
                     const option = document.createElement('option');
@@ -107,20 +139,19 @@
             res.className = '';
             res.style.display = 'none';
 
-            // رابط السكريبت الأخير الخاص بك والمستخرج من التحديث الفعّال
-            const scriptUrl = 'https://script.google.com/macros/s/AKfycbwj5FB0eA3wr67XyFsgwrQOAznKnutJwC-3mx6yUIlew-iCAMnXBKycd-Qu3aTQwDBO/exec';
+            // الرابط الجديد الفعّال الخاص بك
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxbB4N3PsnvSYoEeomLcXJjxyXeyWklzWBYQ4Sb2yUwKYOc7P24s5ERHxKCyF4F6fR_/exec';
 
-            // تجميع البيانات بصيغة URLSearchParams المتوافقة مع السكريبت المحدث
+            // إرسال المسميات المطلوبة بنظام المربعات النصية المشفرة
             const searchParams = new URLSearchParams();
+            searchParams.append('brand', document.getElementById('brand').value);
             searchParams.append('name', document.getElementById('name').value);
             searchParams.append('phone', document.getElementById('phone').value);
             searchParams.append('phone2', document.getElementById('phone2').value);
-            searchParams.append('governorate', document.getElementById('governorate').value);
+            searchParams.append('governorate', governorateSelect.value);
             searchParams.append('city', citySelect.value);
-            searchParams.append('area', document.getElementById('area').value);
             searchParams.append('street', document.getElementById('street').value);
 
-            // عملية الإرسال بالنمط الآمن لتخطي قيود CORS للمتصفحات
             fetch(scriptUrl, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -128,7 +159,6 @@
                 body: searchParams.toString()
             })
             .then(() => {
-                // تصفير الواجهة وإظهار رسالة النجاح فوراً عند مغادرة البيانات للمتصفح
                 res.textContent = '✅ تم إضافة الشحنة بنجاح!';
                 res.className = 'success';
                 res.style.display = 'block';
@@ -150,3 +180,4 @@
     </script>
 </body>
 </html>
+
