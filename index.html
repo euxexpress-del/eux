@@ -15,22 +15,16 @@
             padding: 10px;
         }
         
-        /* تأثير الطيران والطفو للرابط كاملاً */
+        /* تأثير الطيران والطفو للموقع كاملاً */
         .floating-brand {
             display: inline-block;
             font-size: 32px;
             font-weight: 900;
-            color: #2c3e50;
+            color: #3498db;
             text-transform: lowercase;
             letter-spacing: 1px;
-            text-shadow: 2px 4px 10px rgba(44, 62, 80, 0.15);
+            text-shadow: 2px 4px 10px rgba(52, 152, 219, 0.15);
             animation: fly 3s ease-in-out infinite;
-        }
-        
-        /* تمييز جزء eux بلون مختلف داخل الكلمة الطائرة */
-        .floating-brand .highlight {
-            color: #3498db;
-            text-transform: uppercase;
         }
         
         .brand-sub {
@@ -40,7 +34,7 @@
             font-weight: bold;
         }
 
-        /* حركة الطيران الانسيابية للرابط بالكامل */
+        /* حركة الطيران الانسيابية للموقع */
         @keyframes fly {
             0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(2deg); text-shadow: 2px 15px 15px rgba(52, 152, 219, 0.25); }
@@ -64,7 +58,7 @@
     <div class="container">
         <div class="brand-header">
             <div class="floating-brand">
-                <span class="highlight">eux</span>express.com
+                euxexpress.com
             </div>
             <div class="brand-sub">🚀 للشحن لجميع أنحاء جمهورية مصر العربية</div>
         </div>
@@ -82,7 +76,7 @@
             <label>رقم هاتف آخر للمستلم</label>
             <input type="tel" id="phone2" placeholder="رقم هاتف إضافي إن وجد">
 
-            <label>المحافظة <span class="required">*</span></label>
+            <label> المحافظة اسأل جوجل ان كنت لا تعرف<span class="required">*</span></label>
             <select id="governorate" required>
                 <option value="">اختر المحافظة</option>
                 <option value="الشرقية">الشرقية</option>
@@ -113,7 +107,7 @@
                 <option value="جنوب سيناء">جنوب سيناء</option>
             </select>
 
-            <label>المركز / المدينة <span class="required">*</span></label>
+            <label>المركز / المدينة  اسأل جوجل ان كنت لا تعرف <span class="required">*</span></label>
             <select id="city" required>
                 <option value="">اختر المحافظة أولاً</option>
             </select>
